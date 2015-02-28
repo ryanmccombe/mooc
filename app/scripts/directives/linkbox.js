@@ -21,6 +21,10 @@ angular.module('moocApp')
       },
       link: function postLink(scope, element, attrs) {
 
+        //Queue tooltip() invocation after binding title attr
+        setTimeout(function(){
+          element.find('[data-toggle="tooltip"]').tooltip();
+        }, 0)
       }
     };
   });

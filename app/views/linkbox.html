@@ -1,6 +1,6 @@
 <div class="row linkbox">
-  <div class="col-md-1 rating">{{link.rating}}</div>
-  <div class="col-md-9">
+  <div class="col-xs-1 rating">{{link.rating}}</div>
+  <div class="col-xs-9">
     <div>
     <span class="title">
       {{link.title}}
@@ -10,9 +10,13 @@
     </span>
     </div>
     <span>
-      submitted {{link.time}} by <a ui-sref="user({username: link.user})">{{link.user}}</a>
+      submitted
+      <span class="time" data-toggle="tooltip" data-placement="top" title="{{link.time * 1000 | date:'EEE, dd MMM \'at\' h:mma'}}">
+        {{link.time * 1000 | timeago}}
+      </span>
+      by <a ui-sref="user({username: link.user})">{{link.user}}</a>
     </span>
     <span ng-show="data.user.admin"> | <a href="#" ng-click="deleteLink(link.id)">Delete</a></span>
   </div>
-  <div class="col-md-2 comment-count">{{link.comments}}</div>
+  <div class="col-xs-2 comment-count">{{link.comments}}</div>
 </div>

@@ -1,0 +1,18 @@
+<div class="row linkbox">
+  <div class="col-md-1 rating">{{link.rating}}</div>
+  <div class="col-md-9">
+    <div>
+    <span class="title">
+      {{link.title}}
+    </span>
+    <span class="category-label">
+      <a ui-sref="main({category: link.categorySlug})">{{link.category}}</a>
+    </span>
+    </div>
+    <span>
+      submitted {{link.time}} by <a ui-sref="user({username: link.user})">{{link.user}}</a>
+    </span>
+    <span ng-show="data.user.admin"> | <a href="#" ng-click="deleteLink(link.id)">Delete</a></span>
+  </div>
+  <div class="col-md-2 comment-count">{{link.comments}}</div>
+</div>

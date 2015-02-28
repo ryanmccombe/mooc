@@ -53,14 +53,17 @@
 
     <div class="hidden-xs">
 
-      <a class="navbar-brand" href="#">Really Cool Logo</a>
+      <a class="navbar-brand" ui-sref="main">Really Cool Logo</a>
 
       <div class="btn-toolbar" role="toolbar" aria-label="...">
 
         <div class="btn-group" role="group" aria-label="...">
-          <button class="btn btn-default btn-top dropdown-toggle" type="button" data-toggle="dropdown"
+          <button class="btn btn-default btn-top dropdown-toggle"
+                  type="button"
+                  data-toggle="dropdown"
                   aria-expanded="false">
-            All Categories <span class="caret"></span>
+            All Categories
+            <span class="caret"></span>
           </button>
           <ul class="dropdown-menu" role="menu">
             <li><a href="#">Action</a></li>
@@ -84,16 +87,17 @@
         </div>
 
         <div class="btn-group pull-right" role="group" aria-label="...">
-          <button class="btn btn-default btn-top dropdown-toggle" type="button" data-toggle="dropdown"
+          <button class="btn btn-default btn-top dropdown-toggle"
+                  type="button"
+                  data-toggle="dropdown"
                   aria-expanded="false">
-            Max_length_user_name <span class="caret"></span>
+            {{data.user.name}}
+            <span class="caret"></span>
           </button>
           <ul class="dropdown-menu" role="menu">
-            <li><a href="#">Action</a></li>
-            <li><a href="#">Another action</a></li>
-            <li><a href="#">Something else here</a></li>
+            <li><a ui-sref="user({username: data.user.name})">Profile</a></li>
             <li class="divider"></li>
-            <li><a href="#">Separated link</a></li>
+            <li><a href="#">Log Out</a></li>
           </ul>
 
         </div>

@@ -15,19 +15,17 @@
     <link rel="stylesheet" href="styles/app.css"/>
     <!-- endbuild -->
   </head>
-  <body ng-app="moocApp">
+  <body ng-app="moocApp" ng-controller="MainCtrl">
     <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
     <!-- Add your site or application content here -->
-    <div ng-include="'views/header.html'" ng-controller="MainCtrl">
-
-    </div>
+    <mooc-header></mooc-header>
 
 
-    <div class="container">
-    <!-- <div ng-include="'views/main.html'" ng-controller="MainCtrl"></div> -->
+    <div ui-view class="container">
+
     </div>
 
     <div class="footer">
@@ -37,28 +35,24 @@
     </div>
 
 
-    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
-     <script>
-       !function(A,n,g,u,l,a,r){A.GoogleAnalyticsObject=l,A[l]=A[l]||function(){
-       (A[l].q=A[l].q||[]).push(arguments)},A[l].l=+new Date,a=n.createElement(g),
-       r=n.getElementsByTagName(g)[0],a.src=u,r.parentNode.insertBefore(a,r)
-       }(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-       ga('create', 'UA-XXXXX-X');
-       ga('send', 'pageview');
-    </script>
 
     <!-- build:js(.) scripts/vendor.js -->
     <!-- bower:js -->
     <script src="bower_components/jquery/dist/jquery.js"></script>
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.js"></script>
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
         <script src="scripts/app.js"></script>
+        <script src="scripts/app.config.js"></script>
         <script src="scripts/controllers/main.js"></script>
+        <script src="scripts/controllers/linklist.js"></script>
+
+        <script src="scripts/directives/mooc-header.js"></script>
+        <script src="scripts/directives/linkbox.js"></script>
         <!-- endbuild -->
 </body>
 </html>

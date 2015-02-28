@@ -16,12 +16,14 @@ body{
   font-family: $primary-font;
 }
 
+/* Header */
 header{
   padding: 20px 0;
   background-color: white;
   -webkit-box-shadow: 0 0 1px 2px $mid-gray;
      -moz-box-shadow: 0 0 1px 2px $mid-gray;
           box-shadow: 0 0 1px 2px $mid-gray;
+  margin-bottom: 20px;
 }
 .btn-top{
   font-family: $primary-font;
@@ -68,4 +70,11 @@ header{
     border-top: 7px solid;
   border-right: 7px solid transparent;
    border-left: 7px solid transparent;
+}
+
+/* Link Boxes */
+
+.linkbox{
+  margin: 10px 0;
+  background-color: white;
 }

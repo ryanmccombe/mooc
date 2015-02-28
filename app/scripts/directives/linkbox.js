@@ -21,9 +21,12 @@ angular.module('moocApp')
       },
       link: function postLink(scope, element, attrs) {
 
-        //Queue tooltip() invocation after binding title attr
+        // Use timeout to queue jquery after binding
         setTimeout(function(){
           element.find('[data-toggle="tooltip"]').tooltip();
+          var rowHeight = element.children('.linkbox').height();
+          element.find('.glyphicon').css({
+            'margin-top': rowHeight / 2 - 30 + 'px'})
         }, 0)
       }
     };

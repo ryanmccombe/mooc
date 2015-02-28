@@ -1,22 +1,44 @@
-<div class="row linkbox">
-  <div class="col-xs-1 rating">{{link.rating}}</div>
-  <div class="col-xs-9">
-    <div>
+<div class="row linkbox" id="{{link.id}}">
+  <div class="col-xs-2 col-md-1">
+    <div class="row rating">
+      <div class="glyphicon glyphicon-triangle-top vote" ng-class="{'voted': link.upvoted}"></div>
+      <div class="rating-count">
+        {{link.rating}}
+      </div>
+
+    </div>
+  </div>
+
+  <div class="col-xs-8 col-md-10 border-sides">
+    <div class="link-data">
     <span class="title">
-      {{link.title}}
-    </span>
-    <span class="category-label">
-      <a ui-sref="main({category: link.categorySlug})">{{link.category}}</a>
+      <a href="{{link.url}}">
+        {{link.title}}
+      </a>
     </span>
     </div>
+
+    <div class="link-metadata">
     <span>
       submitted
-      <span class="time" data-toggle="tooltip" data-placement="top" title="{{link.time * 1000 | date:'EEE, dd MMM \'at\' h:mma'}}">
+      <span class="time" data-toggle="tooltip" data-placement="left"
+            title="{{link.time * 1000 | date:'EEE, dd MMM \'at\' h:mma'}}">
         {{link.time * 1000 | timeago}}
       </span>
-      by <a ui-sref="user({username: link.user})">{{link.user}}</a>
+      to
+      <a ui-sref="main({category: link.categorySlug})">{{link.category}}</a>
+      by
+      <a ui-sref="user({username: link.user})">{{link.user}}</a>
     </span>
-    <span ng-show="data.user.admin"> | <a href="#" ng-click="deleteLink(link.id)">Delete</a></span>
+      <span ng-show="data.user.admin"> | <a href="#" ng-click="deleteLink(link.id)">Delete</a></span>
+    </div>
   </div>
-  <div class="col-xs-2 comment-count">{{link.comments}}</div>
+  <div class="col-xs-2 col-md-1">
+    <div class="row comment-count">
+      <div class="glyphicon glyphicon-comment"></div>
+      <div class="comment-count-text">
+        {{link.comments}}
+      </div>
+    </div>
+  </div>
 </div>

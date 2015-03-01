@@ -11,28 +11,83 @@ $mid-gray: #9f9f9f;
 $light-gray: #bbb;
 $body-bg: #f6f3f3;
 
-html, body{
+html, body {
   background-color: $body-bg;
   font-family: $primary-font;
 }
 
-a{
+a {
   color: $primary-color;
 }
-a:hover{
+
+a:hover {
   color: $black;
 }
 
 /* Header */
-header{
+header {
   padding: 20px 0;
   background-color: white;
-  -webkit-box-shadow: -1px 3px 10px -2px rgba(0,0,0,0.2);
-     -moz-box-shadow: -1px 3px 10px -2px rgba(0,0,0,0.2);
-          box-shadow: -1px 3px 10px -2px rgba(0,0,0,0.2);
+  -webkit-box-shadow: -1px 3px 10px -2px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: -1px 3px 10px -2px rgba(0, 0, 0, 0.2);
+  box-shadow: -1px 3px 10px -2px rgba(0, 0, 0, 0.2);
   margin-bottom: 20px;
 }
-.btn-top{
+
+.nowrap {
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.top-bar {
+  width: 100%;
+  background-color: $primary-color;
+  color: white;
+  padding: 6px 0;
+  font-size: 0.8em;
+  text-transform: uppercase;
+}
+
+.top-bar a {
+  margin-right: 20px;
+  color: white;
+}
+
+.fadeout {
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.fadeout:after {
+  content: "";
+  pointer-events: none;
+  position: absolute;
+  width: 300px;
+  height: 100%;
+  top: 0;
+  right: 0;
+
+  background-image: -webkit-linear-gradient(right, rgba(255, 69, 0, 1) 55%, rgba(255, 69, 0, 0) 100%);
+  background-image: -moz-linear-gradient(right, rgba(255, 69, 0, 1) 55%, rgba(255, 69, 0, 0) 100%);
+  background-image: -ms-linear-gradient(right, rgba(255, 69, 0, 1) 55%, rgba(255, 69, 0, 0) 100%);
+  background-image: -o-linear-gradient(right, rgba(255, 69, 0, 1) 55%, rgba(255, 69, 0, 0) 100%);
+  background-image: linear-gradient(to left, rgba(255, 69, 0, 1) 55%, rgba(255, 69, 0, 0) 100%);
+}
+
+.top-right {
+  position: relative;
+  right: 160px;
+  width: 100px;
+  font-weight: bold;
+}
+
+.top-right .glyphicon {
+  font-weight: normal;
+  font-size: 1.2em;
+  margin-right: 6px;
+}
+
+.btn-top {
   font-family: $primary-font;
   font-weight: 700;
   text-transform: none;
@@ -42,55 +97,89 @@ header{
   color: $black;
   display: inline;
 }
-.btn-user{
-  float:right;
+
+.btn-user {
+  float: right;
 }
-.navbar-toggle{
+
+.navbar-toggle {
   border: 1px red solid;
   color: $mid-gray;
 }
 
-.btn-top:hover{
+.btn-top:hover {
   border: 1px solid $primary-color;
   background-color: white;
   color: $primary-color;
 }
 
-.sort{
-  margin-left: 20px !important;
+.sort {
+  margin-left: 30px !important;
+  margin-right: -20px;
 }
 
-.btn-active{
+.btn-sort {
+  border-color: white;
+}
+
+.btn-selected {
+  border: 1px solid $primary-color;
+  color: $primary-color;
+}
+
+.btn-active {
   background-color: $primary-color;
   color: white;
   border: 1px solid $primary-color;
-  z-index: 3;
-}
-.btn-active:hover{
-  background-color: $primary-color;
-  color: white;
-  border: 1px solid $primary-color;
 }
 
-.btn .caret{
+.btn-active:hover {
+  background-color: $black;
+  color: white;
+  border: 1px solid $black;
+}
+
+.btn .caret {
   margin-left: 7px;
-    border-top: 7px solid;
+  border-top: 7px solid;
   border-right: 7px solid transparent;
-   border-left: 7px solid transparent;
+  border-left: 7px solid transparent;
+}
+
+.btn-add {
+  overflow: hidden;
+  padding: 9px 10px 5px 10px;
+  color: white;
+  background-color: $black;
+  border-color: $black;
+  border-bottom-right-radius: 4px !important;
+  border-top-right-radius: 4px !important;
+}
+
+.btn-add .glyphicon {
+  padding: 0;
+  font-size: 2em;
+}
+
+.btn-add:hover {
+  border-color: $primary-color;
+  background-color: $primary-color;
+  color: white;
+
 }
 
 /* Link Boxes */
 
-.linkbox{
+.linkbox {
   margin: 10px 0;
   background-color: white;
   overflow: hidden;
-  -webkit-box-shadow: -1px 3px 10px -2px rgba(0,0,0,0.1);
-     -moz-box-shadow: -1px 3px 10px -2px rgba(0,0,0,0.1);
-          box-shadow: -1px 3px 10px -2px rgba(0,0,0,0.1);
+  -webkit-box-shadow: -1px 3px 10px -2px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: -1px 3px 10px -2px rgba(0, 0, 0, 0.1);
+  box-shadow: -1px 3px 10px -2px rgba(0, 0, 0, 0.1);
 }
 
-.rating{
+.rating {
   font-size: 1.6em;
   text-align: center;
   cursor: pointer;
@@ -98,65 +187,66 @@ header{
   margin-bottom: -100px;
 }
 
-.vote{
+.vote {
   color: $mid-gray;
 }
 
-.rating:hover .vote{
+.rating:hover .vote {
   color: $primary-color;
 }
 
-.rating:hover .voted{
+.rating:hover .voted {
   color: $light-gray;
 }
 
-.voted{
+.voted {
   color: $black;
 }
 
-.rating-count{
+.rating-count {
   margin: -15px 0;
   font-size: 1.2em;
 
 }
 
-.border-sides{
+.border-sides {
   border-left: 1px $light-gray dotted;
   border-right: 1px $light-gray dotted;
 }
 
-.link-data{
+.link-data {
   margin-top: 10px;
 }
 
-.title{
+.title {
   font-size: 1.2em;
   font-weight: bold;
 }
-.title a{
+
+.title a {
   color: $black;
 }
 
-
-.link-metadata{
+.link-metadata {
   margin-bottom: 10px;
   font-size: 0.9em;
 }
 
-.time{
+.time {
   cursor: pointer;
 }
 
-.category-label{
+.category-label {
   font-size: 0.9em;
   margin-left: 5px;
   color: $mid-gray;
 }
-.category-label a{
+
+.category-label a {
   color: $mid-gray;
 }
 
-.comment-count{
+.comment-count {
   font-size: 1.6em;
   text-align: center;
   padding-bottom: 100px;
@@ -166,11 +256,20 @@ header{
   cursor: pointer;
 }
 
-
-.comment-count:hover .glyphicon{
+.comment-count:hover .glyphicon {
   color: $primary-color;
 }
 
-.comment-count-text{
+.comment-count-text {
   margin: -10px 0;
+}
+
+/* Modals */
+
+.modal-backdrop {
+  bottom: 0;
+}
+
+.login-link {
+  float: right;
 }

@@ -8,13 +8,14 @@
  * Controller of the moocApp
  */
 angular.module('moocApp')
-  .controller('MainCtrl', function ($scope) {
+  .controller('MainCtrl', function ($scope, $modal) {
     $scope.data = {
       user: {
         name: 'SampleUserName',
         id: '52',
         admin: true
       },
+      // user: false,
       links: [
         {
           id: 1,
@@ -66,6 +67,38 @@ angular.module('moocApp')
           comments: 136
         }
       ]
+    };
+    $scope.register = function(){
+      var modalInstance = $modal.open({
+        templateUrl: 'views/register_modal.html',
+        controller: 'ModalInstanceCtrl',
+        resolve: {
+          items: function(){
+
+          }
+
+        }
+      });
+
+      modalInstance.result.then(function(){
+
+      })
+    };
+    $scope.addLink = function(){
+      var modalInstance = $modal.open({
+        templateUrl: 'views/addlink_modal.html',
+        controller: 'ModalInstanceCtrl',
+        resolve: {
+          items: function(){
+
+          }
+
+        }
+      });
+
+      modalInstance.result.then(function(){
+
+      })
     }
 
   });

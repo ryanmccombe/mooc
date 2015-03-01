@@ -1,0 +1,42 @@
+<form name="addlink" class="form-link" novalidate>
+  <div class="modal-header">
+    <h3>Add Link</h3>
+  </div>
+  <div class="modal-body">
+
+    <select class="form-control" ng-init="categorySelection = 0" ng-model="categorySelection" required>
+      <option selected disabled value="0">Select Category</option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+    </select>
+
+    <input type="text"
+           name="title"
+           ng-model="title"
+           class="form-control"
+           placeholder="Title"
+           required
+           autofocus>
+    <input type="text"
+           name="url"
+           ng-model="url"
+           class="form-control"
+           placeholder="Web Address"
+           required>
+
+    <textarea rows="4"
+           name="body"
+           ng-model="body"
+           class="form-control"
+           placeholder="Description">
+      </textarea>
+
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-primary" ng-disabled="addlink.$invalid || categorySelection == 0" ng-click="addLink()">
+      Submit
+    </button>
+    <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+  </div>
+</form>

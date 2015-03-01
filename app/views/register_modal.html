@@ -1,0 +1,40 @@
+<form name="register" class="form-signin" novalidate>
+  <div class="modal-header">
+    <div class="btn-group">
+      <label class="btn btn-lg btn-primary" ng-class="{'active':!registering}" ng-model="registering" btn-radio="false">Login</label>
+      <label class="btn btn-lg btn-primary" ng-model="registering" btn-radio="true">Register</label>
+    </div>
+  </div>
+  <div class="modal-body">
+
+    <input type="text"
+           name="Username"
+           ng-model="username"
+           class="form-control"
+           placeholder="Username"
+           required
+           autofocus>
+    <input type="password"
+           name="password"
+           ng-model="password"
+           class="form-control"
+           placeholder="Password"
+           required>
+
+    <input type="password"
+           name="password_confirm"
+           ng-show="registering"
+           ng-model="password_confirm"
+           validate-equals="password"
+           ng-class="{form_error: register.password_confirm.$dirty && password_confirm != password}"
+           class="form-control"
+           placeholder="Confirm Password">
+
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-primary" ng-disabled="register.$invalid || (registering && password_confirm != password)" ng-click="submit()">
+      Submit
+    </button>
+    <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+  </div>
+</form>

@@ -12,6 +12,7 @@ angular.module('moocApp')
       templateUrl: 'views/header.html',
       restrict: 'E',
       link: function postLink(scope, element, attrs) {
+        element.find('[data-toggle="tooltip"]').tooltip();
       }
     };
   });

@@ -9,7 +9,7 @@
  * Main module of the application.
  */
 angular
-  .module('moocApp', ['ui.router']);
+  .module('moocApp', ['ui.router', 'ui.bootstrap']);
 
 
 $(window).resize(function(){

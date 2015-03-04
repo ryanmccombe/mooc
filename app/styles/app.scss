@@ -16,6 +16,16 @@ html, body {
   font-family: $primary-font;
 }
 
+::-moz-selection { /* Code for Firefox */
+  color: white;
+  background: $primary-color;
+}
+
+::selection {
+  color: white;
+  background: $primary-color;
+}
+
 a {
   color: $primary-color;
 }
@@ -91,11 +101,16 @@ header {
   font-family: $primary-font;
   font-weight: 700;
   text-transform: none;
-  border: 1px $light-gray solid;
+  border: 1px $primary-color solid;
   font-size: 0.9em;
   padding: 1em;
   color: $black;
   display: inline;
+}
+
+.dropdown-toggle{
+  border-color: $primary-color;
+  color: $black;
 }
 
 .btn-user {
@@ -114,8 +129,8 @@ header {
 }
 
 .sort {
-  margin-left: 30px !important;
-  margin-right: -20px;
+  margin-left: 15px !important;
+  margin-right: -10px !important;
 }
 
 .btn-sort {
@@ -124,7 +139,7 @@ header {
 
 .btn-selected {
   border: 1px solid $primary-color;
-  color: $primary-color;
+  color: $black;
 }
 
 .btn-active {
@@ -146,31 +161,39 @@ header {
   border-left: 7px solid transparent;
 }
 
-.btn-add {
+.btn-add, .user-icon {
   overflow: hidden;
   padding: 9px 10px 5px 10px;
   color: white;
-  background-color: $black;
-  border-color: $black;
+  background-color: $primary-color;
+  border-color: $primary-color;
+  border-radius: 0;
+}
+
+.btn-add{
   border-bottom-right-radius: 4px !important;
   border-top-right-radius: 4px !important;
 }
 
-.btn-add .glyphicon {
-  padding: 0;
+.user-icon{
+  border-bottom-left-radius: 4px !important;
+  border-top-left-radius: 4px !important;
+}
+
+.btn-add .glyphicon, .user-icon .glyphicon {
   font-size: 2em;
 }
 
-.btn-add:hover {
-  border-color: $primary-color;
-  background-color: $primary-color;
+.btn-add:hover, .user-icon:hover {
+  border-color: $black;
+  background-color: $black;
   color: white;
 
 }
 
 /* Link Boxes */
 
-.linkbox {
+.linkbox, .comment-wrapper {
   margin: 10px 0;
   background-color: white;
   overflow: hidden;
@@ -183,24 +206,37 @@ header {
   font-size: 1.6em;
   text-align: center;
   cursor: pointer;
-  padding-bottom: 100px;
-  margin-bottom: -100px;
+  padding-bottom: 1000px;
+  margin-bottom: -1000px;
+  border-left: 2px white solid;
 }
 
-.vote {
-  color: $mid-gray;
+.rating:hover{
+  border-color: $primary-color;
 }
-
-.rating:hover .vote {
+.rating:hover .glyphicon{
   color: $primary-color;
 }
 
-.rating:hover .voted {
+.upvoted {
+  border-left: 2px $primary-color solid;
+}
+
+.upvoted .glyphicon{
+  color: $primary-color;
+}
+
+.upvoted:hover{
+  border-color: $light-gray;
+}
+
+.upvoted:hover .glyphicon{
   color: $light-gray;
 }
 
-.voted {
-  color: $black;
+
+.rating .glyphicon, .comment-count .glyphicon{
+  margin-top: 10px;
 }
 
 .rating-count {
@@ -212,6 +248,10 @@ header {
 .border-sides {
   border-left: 1px $light-gray dotted;
   border-right: 1px $light-gray dotted;
+}
+
+.border-left {
+  border-left: 1px $light-gray dotted;
 }
 
 .link-data {
@@ -252,8 +292,15 @@ header {
   padding-bottom: 100px;
   padding-top: 5px;
   margin-bottom: -100px;
-
   cursor: pointer;
+}
+
+.comment-count a{
+  color: $black;
+}
+
+.comment-count a:hover{
+  text-decoration: none;
 }
 
 .comment-count:hover .glyphicon {
@@ -272,4 +319,75 @@ header {
 
 .login-link {
   float: right;
+}
+
+/* Link Page */
+
+.link-body{
+  margin-bottom: 10px;
+  max-width: 600px;
+}
+
+.link-body pre{
+  font-family: $primary-font;
+  padding: 0;
+  margin: 0;
+  font-size: 1.1em;
+  background-color: inherit;
+  border: none;
+}
+
+.comment-wrapper{
+  padding-top: 20px;
+}
+
+.comment-header{
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+.comment-form{
+  padding-top: 10px;
+  padding-bottom: 20px;
+}
+
+.comment-list{
+  padding-bottom: 20px;
+  max-width: 700px;
+}
+
+.form-control{
+  padding: 6px 0;
+  border: none;
+  border-radius: 0;
+  border-bottom: 1px $black solid;
+  border-top: 1px $black solid;
+  box-shadow: none;
+};
+
+.form-control:focus{
+  box-shadow: none;
+  border-color: $primary-color;
+}
+
+.form-button{
+  margin-top: 10px;
+  font-weight: bold;
+  background-color: $primary-color;
+  color: white;
+  border-radius: 0;
+}
+
+.form-button:hover{
+  background-color: $black;
+  color: white;
+}
+
+textarea.form-control{
+  resize: none;
+  max-width: 700px;
+  box-sizing: border-box;
+  max-height: 500px;
+  min-height: 74px;
+  overflow-x: hidden; /* for Firefox (issue #5) */
 }

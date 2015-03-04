@@ -10,6 +10,11 @@ angular
         url: '/u/:username',
         templateUrl: '/views/user.html'
       })
+      .state('comments',{
+        url: '/comments/:id',
+        templateUrl: '/views/comments.html',
+        controller: 'CommentCtrl'
+      })
   })
 
   .constant('API_URL', '');

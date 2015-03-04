@@ -1,7 +1,7 @@
 <div class="row linkbox" id="{{link.id}}">
   <div class="col-xs-2 col-md-1">
-    <div class="row rating">
-      <div class="glyphicon glyphicon-triangle-top vote" ng-class="{'voted': link.upvoted}"></div>
+    <div class="row rating" ng-class="{'upvoted': link.upvoted}">
+      <div class="glyphicon glyphicon-triangle-top vote"></div>
       <div class="rating-count">
         {{link.rating}}
       </div>
@@ -9,7 +9,7 @@
     </div>
   </div>
 
-  <div class="col-xs-8 col-md-10 border-sides">
+  <div ng-class="{'col-xs-8 col-md-10 border-sides': !link.body, 'col-xs-10 col-md-11 border-left': link.body}">
     <div class="link-data">
     <span class="title">
       <a href="{{link.url}}">
@@ -32,13 +32,22 @@
     </span>
       <span ng-show="data.user.admin"> | <a href="#" ng-click="deleteLink(link.id)">Delete</a></span>
     </div>
+
+    <div ng-show="link.body" ng-bind-html="link.body | newLineToBr" class="link-body">
+    </div>
+
   </div>
-  <div class="col-xs-2 col-md-1">
+  <div ng-hide="link.body" class="col-xs-2 col-md-1">
     <div class="row comment-count">
+      <a ui-sref="comments({id: link.id})">
+
+
       <div class="glyphicon glyphicon-comment"></div>
       <div class="comment-count-text">
         {{link.comments}}
       </div>
+      </a>
     </div>
+
   </div>
 </div>

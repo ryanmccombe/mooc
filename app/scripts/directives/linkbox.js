@@ -25,8 +25,11 @@ angular.module('moocApp')
         setTimeout(function(){
           element.find('[data-toggle="tooltip"]').tooltip();
           var rowHeight = element.children('.linkbox').height();
-          element.find('.glyphicon').css({
-            'margin-top': rowHeight / 2 - 30 + 'px'})
+          if (rowHeight < 300) {
+            element.find('.glyphicon').css({
+              'margin-top': rowHeight / 2 - 30 + 'px'
+            })
+          }
         }, 0)
       }
     };

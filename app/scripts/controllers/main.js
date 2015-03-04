@@ -11,7 +11,7 @@ angular.module('moocApp')
   .controller('MainCtrl', function ($scope, $modal) {
     $scope.data = {
       user: {
-        name: 'SampleUserName',
+        name: '16_Char_Username',
         id: '52',
         admin: true
       },

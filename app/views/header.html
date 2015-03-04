@@ -56,10 +56,20 @@
           </ul>
         </div>
 
+
+
         <div class="btn-group pull-right" role="group" aria-label="...">
-          <button class="btn btn-default btn-top dropdown-toggle" type="button" data-toggle="dropdown"
+          <button class="btn btn-default btn-top dropdown-toggle user-icon" type="button" data-toggle="dropdown"
                   aria-expanded="false">
             <span class="glyphicon glyphicon-user"></span>
+          </button>
+          <button class="btn btn-default btn-top btn-add"
+                  type="button"
+                  data-toggle="tooltip"
+                  data-placement="left"
+                  title="Add a Link"
+                  ng-click="addLink()">
+            <span class="glyphicon glyphicon-plus-sign"></span>
           </button>
           <ul class="dropdown-menu" role="menu">
             <li><a href="#">Action</a></li>
@@ -124,12 +134,16 @@
         </div>
 
         <div ng-show="data.user" class="btn-group pull-right" role="group" aria-label="...">
-          <button class="btn btn-default btn-top"
+          <button class="btn btn-default btn-top hidden-sm"
                   type="button"
                   data-toggle="dropdown"
                   aria-expanded="false">
             {{data.user.name}}
             <span class="caret"></span>
+          </button>
+          <button class="btn btn-default btn-top dropdown-toggle visible-sm user-icon" type="button" data-toggle="dropdown"
+                  aria-expanded="false">
+            <span class="glyphicon glyphicon-user"></span>
           </button>
           <button class="btn btn-default btn-top btn-add"
                   type="button"

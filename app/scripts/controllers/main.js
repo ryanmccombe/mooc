@@ -8,7 +8,7 @@
  * Controller of the moocApp
  */
 angular.module('moocApp')
-  .controller('MainCtrl', function ($scope, $modal) {
+  .controller('MainCtrl', function ($scope, $modal, $state) {
     $scope.data = {
       user: {
         name: '16_Char_Username',
@@ -68,6 +68,7 @@ angular.module('moocApp')
         }
       ]
     };
+    $scope.state = $state;
     $scope.register = function(){
       var modalInstance = $modal.open({
         templateUrl: 'views/register_modal.html',

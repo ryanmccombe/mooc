@@ -320,6 +320,20 @@ header {
 .login-link {
   float: right;
 }
+.modal-header{
+  background-color: $primary-color;
+  color: white;
+  font-size: 1.3em;
+  font-weight: bold;
+}
+
+.modal-footer{
+  border: none;
+  background-color: $body-bg;
+}
+.modal-footer .btn{
+  margin-top: 0;
+}
 
 /* Link Page */
 
@@ -328,11 +342,11 @@ header {
   max-width: 600px;
 }
 
-.link-body pre{
+.link-body{
   font-family: $primary-font;
-  padding: 0;
+  padding: 0 0 20px 0;
   margin: 0;
-  font-size: 1.1em;
+  font-size: 1.15em;
   background-color: inherit;
   border: none;
 }
@@ -349,19 +363,26 @@ header {
 .comment-form{
   padding-top: 10px;
   padding-bottom: 20px;
+  max-width: 700px;
+}
+
+.comment-form div{
+  text-align: right;
 }
 
 .comment-list{
   padding-bottom: 20px;
+  font-size: 1.15em;
   max-width: 700px;
 }
 
 .form-control{
   padding: 6px 0;
+  font-size: 1.1em;
   border: none;
   border-radius: 0;
-  border-bottom: 1px $black solid;
-  border-top: 1px $black solid;
+  border-bottom: 1px white solid;
+  border-top: 1px white solid;
   box-shadow: none;
 };
 
@@ -373,21 +394,71 @@ header {
 .form-button{
   margin-top: 10px;
   font-weight: bold;
-  background-color: $primary-color;
+  font-size: 1.1em;
+  background-color: $black;
   color: white;
   border-radius: 0;
 }
 
 .form-button:hover{
-  background-color: $black;
+  background-color: $primary-color;
   color: white;
 }
 
 textarea.form-control{
   resize: none;
-  max-width: 700px;
   box-sizing: border-box;
   max-height: 500px;
-  min-height: 74px;
+  min-height: 77px;
   overflow-x: hidden; /* for Firefox (issue #5) */
+}
+.comment-textarea{
+  border-color: $black;
+}
+
+/* View Anims */
+
+.ui-view-container {
+  position: relative;
+}
+[ui-view].ng-enter,
+[ui-view].ng-leave {
+  position: absolute;
+  left: 0;
+  right: 0;
+}
+[ui-view].ng-enter{
+  -webkit-transition: all 0.6s ease-in-out;
+     -moz-transition: all 0.6s ease-in-out;
+       -o-transition: all 0.6s ease-in-out;
+          transition: all 0.6s ease-in-out;
+}
+[ui-view].ng-leave{
+  -webkit-transition: all 0.2s ease-in-out;
+     -moz-transition: all 0.2s ease-in-out;
+       -o-transition: all 0.2s ease-in-out;
+          transition: all 0.2s ease-in-out;
+}
+
+[ui-view].ng-enter {
+  opacity: 0;
+
+    -webkit-transform: scale3d(0.8, 1, 1);
+       -moz-transform: scale3d(0.8, 1, 1);
+            transform: scale3d(0.8, 1, 1);
+}
+[ui-view].ng-enter-active {
+  opacity: 1;
+  -webkit-transform: scale3d(1, 1, 1);
+     -moz-transform: scale3d(1, 1, 1);
+          transform: scale3d(1, 1, 1);
+}
+[ui-view].ng-leave {
+  opacity: 1;
+  -webkit-transform: translate3d(0, 0, 0);
+     -moz-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
+}
+[ui-view].ng-leave-active {
+  opacity: 0;
 }

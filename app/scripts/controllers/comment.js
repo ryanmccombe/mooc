@@ -24,6 +24,7 @@ angular.module('moocApp')
         upvoted: true,
         title: 'Eloquent Javascript, Second Edition is now fully available online',
         body: 'Praesent gravida id metus eget eleifend. Fusce porta aliquam tincidunt. Nullam vitae auctor est. Cras quam nisi, pretium ut feugiat a, efficitur ac dolor. Fusce eget neque felis. Vivamus in nisl elit. Ut cursus turpis accumsan scelerisque luctus. Mauris dapibus est sit amet nunc aliquet feugiat. Fusce convallis urna at enim tincidunt, ut commodo nunc mollis. Vestibulum rhoncus felis non congue suscipit.\r\n\r\nVivamus eu imperdiet nibh. Pellentesque lacus mi, vehicula at lorem vitae, dictum varius tellus. Integer vulputate molestie lectus, in blandit mi posuere vel. Integer pulvinar dolor vitae libero dignissim, a mattis turpis convallis. Integer eu ligula egestas, sodales sapien ut, porttitor quam. Vivamus condimentum ultricies lectus, iaculis tristique tellus aliquet et. Aenean eu turpis ac velit luctus mattis. Duis quis commodo justo, laoreet vulputate massa.',
+        // body: '',
         url: 'http://www.google.com',
         category: 'JavaScript',
         categorySlug: 'javascript',

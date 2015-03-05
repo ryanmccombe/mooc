@@ -9,7 +9,7 @@
  * Main module of the application.
  */
 angular
-  .module('moocApp', ['ui.router', 'ui.bootstrap', 'ngSanitize']);
+  .module('moocApp', ['ui.router', 'ui.bootstrap', 'ngSanitize', 'ngAnimate']);
 
 $(window).resize(function () {
   $('#linklist').find('.glyphicon').each(function (i) {

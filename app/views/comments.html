@@ -1,30 +1,53 @@
-<linkbox ng-init="link = data.link"></linkbox>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-md-12">
 
-<div class="row comment-wrapper">
+      <linkbox ng-init="link = data.link"></linkbox>
 
-  <div class="col-xs-12">
-    <span class="comment-header">Post Your Comment</span>
+      <div class="row comment-wrapper">
 
-    <div comment-form class="comment-form" ng-show="data.user">
-      <form name="addComment" class="form-link" novalidate>
-        <textarea required rows="3" name="body" ng-model="body" class="form-control js-auto-size"></textarea>
-        <button class="btn form-button" ng-disabled="addcomment.$invalid" ng-click="addComment()">
-          Post Comment
-        </button>
-      </form>
+        <div class="col-xs-12">
+          <span class="comment-header">Post Your Comment</span>
 
-    </div>
-  </div>
-</div>
+          <div comment-form class="comment-form" ng-show="data.user">
+            <form name="addComment" novalidate>
+        <textarea required rows="3" name="body" ng-model="body"
+                  class="form-control js-auto-size comment-textarea"></textarea>
+
+              <div>
+                <button class="btn form-button" ng-disabled="addComment.$invalid" ng-click="addComment()">
+                  Submit
+                </button>
+              </div>
+            </form>
+
+          </div>
+        </div>
+      </div>
 
 
-<div class="row comment-wrapper">
-  <div class="col-xs-12">
-    <span class="comment-header">All {{data.comments.length}} Comments</span>
-    <div class="comment-list">
-      <div single-comment ng-repeat="comment in data.comments" id="{{comment.id}}">
-        {{comment.body}}
+      <div class="row comment-wrapper">
+        <div class="col-xs-12">
+          <span class="comment-header">All {{data.comments.length}} Comments</span>
+
+          <div class="comment-list">
+            <div single-comment ng-repeat="comment in data.comments" id="{{comment.id}}">
+              {{comment.body}}
+            </div>
+          </div>
+        </div>
       </div>
     </div>
+
+    <!--
+
+    <div class="col-md-4">
+      <div class="row comment-wrapper">
+        Hello yes this is sidebar
+      </div>
+    </div>
+
+    -->
+
   </div>
 </div>

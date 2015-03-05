@@ -90,6 +90,8 @@
 
       <div class="btn-toolbar" role="toolbar" aria-label="...">
 
+        <div ng-show="state.current.name === 'main'">
+
         <div class="btn-group" role="group" aria-label="...">
           <button class="btn btn-default btn-top dropdown-toggle"
                   type="button"
@@ -122,6 +124,7 @@
             Latest
           </button>
         </div>
+          </div>
 
 
         <div ng-hide="data.user" class="btn-group pull-right" role="group" aria-label="...">

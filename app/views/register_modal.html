@@ -1,8 +1,10 @@
 <form name="register" class="form-signin" novalidate>
   <div class="modal-header">
-    <div class="btn-group">
-      <label class="btn btn-lg btn-primary" ng-class="{'active':!registering}" ng-model="registering" btn-radio="false">Login</label>
-      <label class="btn btn-lg btn-primary" ng-model="registering" btn-radio="true">Register</label>
+    <span ng-show="registering">Register</span>
+    <span ng-hide="registering">Login</span>
+    <div class="btn-group login-toggle">
+      <label class="btn btn-sm form-button" ng-hide="registering" ng-model="registering" btn-radio="true">Create a New Account</label>
+      <label class="btn form-button" ng-show="registering" ng-model="registering" btn-radio="false">Login</label>
     </div>
   </div>
   <div class="modal-body">
@@ -32,9 +34,9 @@
 
   </div>
   <div class="modal-footer">
-    <button class="btn btn-primary" ng-disabled="register.$invalid || (registering && password_confirm != password)" ng-click="submit()">
+    <button class="btn form-button" ng-disabled="register.$invalid || (registering && password_confirm != password)" ng-click="submit()">
       Submit
     </button>
-    <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+    <button class="btn form-button" ng-click="cancel()">Cancel</button>
   </div>
 </form>

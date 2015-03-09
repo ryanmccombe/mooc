@@ -193,7 +193,7 @@ header {
 
 /* Link Boxes */
 
-.linkbox, .comment-wrapper {
+.linkbox, .comment-wrapper, .single-comment {
   margin: 10px 0;
   background-color: white;
   overflow: hidden;
@@ -320,12 +320,40 @@ header {
 .login-link {
   float: right;
 }
+
+.login-toggle{
+  float:right;
+}
+
+.login-toggle label{
+  background-color: $black;
+  border: none;
+  border-radius: 0;
+}
+
 .modal-header{
   background-color: $primary-color;
   color: white;
   font-size: 1.3em;
   font-weight: bold;
 }
+
+.modal-header .btn{
+  background-color: $primary-color;
+  color: white;
+  border: 3px white solid;
+  font-size: 0.7em;
+  margin-top: 16px;
+}
+
+.modal-header .btn:hover{
+  background-color: $black;
+}
+
+.modal-body{
+  margin-top: 10px;
+}
+
 
 .modal-footer{
   border: none;
@@ -334,6 +362,7 @@ header {
 .modal-footer .btn{
   margin-top: 0;
 }
+
 
 /* Link Page */
 
@@ -412,8 +441,28 @@ textarea.form-control{
   min-height: 77px;
   overflow-x: hidden; /* for Firefox (issue #5) */
 }
+
+.single-comment{
+  padding: 10px 0;
+}
+
 .comment-textarea{
   border-color: $black;
+}
+
+.comment-author{
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+.comment-metadata{
+  margin-left: 10px;
+  font-size: 0.9em;
+}
+
+.comment-body{
+  font-size: 1.15em;
+  max-width: 700px;
 }
 
 /* View Anims */

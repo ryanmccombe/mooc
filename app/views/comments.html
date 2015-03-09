@@ -4,12 +4,13 @@
 
       <linkbox ng-init="link = data.link"></linkbox>
 
-      <div class="row comment-wrapper">
+      <div ng-show="data.user" class="row comment-wrapper">
 
         <div class="col-xs-12">
           <span class="comment-header">Post Your Comment</span>
 
-          <div comment-form class="comment-form" ng-show="data.user">
+
+          <div comment-form class="comment-form" >
             <form name="addComment" novalidate>
         <textarea required rows="3" name="body" ng-model="body"
                   class="form-control js-auto-size comment-textarea"></textarea>
@@ -26,15 +27,17 @@
       </div>
 
 
-      <div class="row comment-wrapper">
+      <div single-comment class="row single-comment" ng-repeat="comment in data.comments" id="{{comment.id}}">
         <div class="col-xs-12">
-          <span class="comment-header">All {{data.comments.length}} Comments</span>
-
-          <div class="comment-list">
-            <div single-comment ng-repeat="comment in data.comments" id="{{comment.id}}">
-              {{comment.body}}
-            </div>
-          </div>
+          <a class="comment-author" ui-sref="user({username: comment.user})">{{comment.user}}</a>
+          <span class="comment-metadata">
+            <span class="time" data-toggle="tooltip" data-placement="right"
+                  title="{{comment.time * 1000 | date:'EEE, dd MMM \'at\' h:mma'}}">
+                    {{comment.time * 1000 | timeago}}
+            </span>
+            <span ng-show="data.user.admin"> | <a href="#" ng-click="deleteComment(comment.id)">Delete</a></span>
+          </span>
+          <div class="comment-body">{{comment.body}}</div>
         </div>
       </div>
     </div>

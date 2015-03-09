@@ -13,11 +13,12 @@ angular.module('moocApp')
     $scope.id = $stateParams.id;
 
     $scope.data = {
-      user: {
-        name: '16_Char_Username',
-        id: '52',
-        admin: true
-      },
+      // user: {
+      //   name: '16_Char_Username',
+      //   id: '52',
+      //   admin: true
+      // },
+      user: false,
       link: {
         id: 1,
         rating: 34,

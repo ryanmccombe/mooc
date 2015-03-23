@@ -10,12 +10,12 @@
 angular.module('moocApp')
   .controller('MainCtrl', function ($scope, $modal, $state) {
     $scope.data = {
-      user: {
-        name: '16_Char_Username',
-        id: '52',
-        admin: true
-      },
-      // user: false,
+      // user: {
+      //   name: '16_Char_Username',
+      //   id: '52',
+      //   admin: true
+      // },
+      user: false,
       links: [
         {
           id: 1,

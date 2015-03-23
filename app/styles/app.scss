@@ -16,6 +16,10 @@ html, body {
   font-family: $primary-font;
 }
 
+[ng\:cloak], [ng-cloak], .ng-cloak {
+  display: none !important;
+}
+
 ::-moz-selection { /* Code for Firefox */
   color: white;
   background: $primary-color;
@@ -434,6 +438,10 @@ header {
   color: white;
 }
 
+.form-button:focus{
+  color: white;
+}
+
 textarea.form-control{
   resize: none;
   box-sizing: border-box;
@@ -463,6 +471,29 @@ textarea.form-control{
 .comment-body{
   font-size: 1.15em;
   max-width: 700px;
+}
+
+/* Alerts */
+
+.main-alert{
+  margin: 0;
+  padding: 5px 10px;
+  font-weight: bold;
+  font-size: 1.1em;
+  background-color: $primary-color;
+  color: white;
+  border-radius: 0;
+  float: left;
+}
+
+.alert-warning{
+  background-color: $primary-color;
+  color: white;
+  font-weight: normal;
+}
+
+.alert-hidden{
+  visibility: hidden;
 }
 
 /* View Anims */

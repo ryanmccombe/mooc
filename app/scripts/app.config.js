@@ -8,13 +8,16 @@ angular
     })
       .state('user',{
         url: '/u/:username',
-        templateUrl: '/views/user.html'
+        templateUrl: '/views/user.html',
+        controller: 'UserprofileCtrl'
       })
       .state('comments',{
         url: '/comments/:id',
         templateUrl: '/views/comments.html',
         controller: 'CommentCtrl'
-      })
+      });
+
+    // $httpProvider.interceptors.push('authInterceptor');
   })
 
   .constant('API_URL', '');

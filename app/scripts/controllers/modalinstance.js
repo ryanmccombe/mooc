@@ -8,18 +8,39 @@
  * Controller of the moocApp
  */
 angular.module('moocApp')
-  .controller('ModalInstanceCtrl', function ($scope, $modalInstance) {
+  .controller('ModalInstanceCtrl', function ($scope, $modalInstance, $http, alert, authToken) {
 
 
     $scope.submit = function () {
       // TODO: Submit to server
+      var user = {user: {name: 'Ryan', password: 'test'}};
       if ($scope.registering){
+
         console.log('registering ' + $scope.username + $scope.password + $scope.password_confirmation);
+
+
+        $http.post('http://localhost:3000/register', user)
+          .success(function(res){
+            console.log('registered success');
+            authToken.setToken(res.token);
+            $modalInstance.close();
+          })
+          .error(function(err){
+            alert('warning', 'Oops', 'Could not register');
+          });
+
       } else {
-        console.log('liogging in ' + $scope.username + $scope.password);
+        $http.post('http://localhost:3000/login', user)
+          .success(function(res){
+            console.log('login success');
+            authToken.setToken(res.token);
+            $modalInstance.close();
+          })
+          .error(function(err){
+            alert('warning', 'Oops', 'Could not log in');
+          });
       }
 
-      $modalInstance.close();
     };
 
     $scope.addLink = function(){

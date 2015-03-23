@@ -1,10 +1,10 @@
-<form name="register" class="form-signin" novalidate>
+<form ng-init="registering = true" name="register" class="form-signin" novalidate>
   <div class="modal-header">
     <span ng-show="registering">Register</span>
     <span ng-hide="registering">Login</span>
     <div class="btn-group login-toggle">
       <label class="btn btn-sm form-button" ng-hide="registering" ng-model="registering" btn-radio="true">Create a New Account</label>
-      <label class="btn form-button" ng-show="registering" ng-model="registering" btn-radio="false">Login</label>
+      <label class="btn form-button" ng-show="registering" ng-model="registering" btn-radio="false">Login to an Existing Account</label>
     </div>
   </div>
   <div class="modal-body">
@@ -23,20 +23,25 @@
            placeholder="Password"
            required>
 
-    <input type="password"
-           name="password_confirm"
+    <input ng-cloak type="password"
+           name="password_confirmation"
            ng-show="registering"
-           ng-model="password_confirm"
-           validate-equals="password"
-           ng-class="{form_error: register.password_confirm.$dirty && password_confirm != password}"
+           ng-model="password_confirmation"
+           ng-class="{form_error: register.password_confirmation.$dirty && password_confirmation != password}"
            class="form-control"
            placeholder="Confirm Password">
 
+
   </div>
   <div class="modal-footer">
-    <button class="btn form-button" ng-disabled="register.$invalid || (registering && password_confirm != password)" ng-click="submit()">
+    <div ng-cloak class="alert alert-{{alert.type}} animated main-alert" ng-class="{'flipInY': alert.show, 'flipOutY': !alert.show, 'alert-hidden': !alert.hasBeenShown}">
+      <strong>{{alert.title}} </strong> {{alert.message}}
+    </div>
+    <button class="btn form-button" ng-disabled="register.$invalid || (registering && password_confirmation != password)" ng-click="submit()">
       Submit
     </button>
     <button class="btn form-button" ng-click="cancel()">Cancel</button>
   </div>
+
+
 </form>

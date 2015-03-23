@@ -8,8 +8,8 @@
  * Controller of the moocApp
  */
 angular.module('moocApp')
-  .controller('ModalInstanceCtrl', function ($scope, $modalInstance, $http, alert, authToken) {
-
+  .controller('ModalInstanceCtrl', function ($scope, $modalInstance, $http, alert, authToken, SharedData) {
+    $scope.data = SharedData;
 
     $scope.submit = function () {
       // TODO: Submit to server
@@ -32,7 +32,7 @@ angular.module('moocApp')
       } else {
         $http.post('http://localhost:3000/login', user)
           .success(function(res){
-            console.log('login success');
+            $scope.data.user = res.user;
             authToken.setToken(res.token);
             $modalInstance.close();
           })

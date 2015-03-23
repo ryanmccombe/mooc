@@ -3,13 +3,12 @@ class SessionsController < ApplicationController
 
   def create
     @user = User.find_by(name: params[:user][:name])
-    render json: @user
 
-    # if @user && @user.authenticate(params[:user][:password])
-    #   token = AuthToken.issue_token({ user_id: @user.id })
-    #   render json: {user: @user, token: token}
-    # else
-    #   render json: {message: 'Invalid login'}, status: 401
-    # end
+    if @user && @user.authenticate(params[:user][:password])
+      token = AuthToken.issue_token({user_id: @user.id})
+      render json: {user: @user, token: token}
+    else
+      render json: {message: 'Invalid login'}, status: 401
+    end
   end
 end

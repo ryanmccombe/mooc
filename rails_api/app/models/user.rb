@@ -1,5 +1,7 @@
 class User < ActiveRecord::Base
   has_many :links
+  has_many :upvotes
+  has_many :comments
 
   has_secure_password
 
@@ -7,8 +9,8 @@ class User < ActiveRecord::Base
   # validates :email, presence: true, length: {maximum: 255}, uniqueness: {case_sensitive: false}
 
 
-  # def as_json(options={})
-  #   super(:only => [:email, :admin])
-  # end
+  def as_json(options={})
+    super(:only => [:name, :admin])
+  end
 
 end

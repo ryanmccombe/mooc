@@ -20,8 +20,8 @@ class LinksController < ApplicationController
     else
       token = AuthToken.valid?(headers['Authorization'].split(' ').last)
       if token
-        token.inspect
-        User.find(token[0]['user_id'])
+        # User.find(token[0]['user_id'])
+        User.first
       end
     end
   end

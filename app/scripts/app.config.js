@@ -17,7 +17,7 @@ angular
         controller: 'CommentCtrl'
       });
 
-    // $httpProvider.interceptors.push('authInterceptor');
+    $httpProvider.interceptors.push('authInterceptor');
   })
 
   .constant('API_URL', '');

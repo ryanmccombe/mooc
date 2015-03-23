@@ -11,17 +11,40 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150323083312) do
+ActiveRecord::Schema.define(version: 20150323123542) do
 
-  create_table "links", force: :cascade do |t|
-    t.integer  "rating"
+  create_table "categories", force: :cascade do |t|
+    t.string   "name"
+    t.string   "slug"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "categories", ["slug"], name: "index_categories_on_slug"
+
+  create_table "comments", force: :cascade do |t|
+    t.text     "body"
     t.integer  "user_id"
-    t.string   "title"
-    t.string   "body"
-    t.string   "url"
+    t.integer  "link_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "comments", ["link_id"], name: "index_comments_on_link_id"
+  add_index "comments", ["user_id"], name: "index_comments_on_user_id"
+
+# Could not dump table "links" because of following NoMethodError
+#   undefined method `[]' for nil:NilClass
+
+  create_table "upvotes", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "link_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  add_index "upvotes", ["link_id"], name: "index_upvotes_on_link_id"
+  add_index "upvotes", ["user_id"], name: "index_upvotes_on_user_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "password_digest"

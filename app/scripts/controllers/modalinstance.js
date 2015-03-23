@@ -34,7 +34,10 @@ angular.module('moocApp')
           .success(function(res){
             $scope.data.user = res.user;
             authToken.setToken(res.token);
-            $modalInstance.close();
+            alert('success', 'Login Success!');
+            setTimeout(function(){
+              $modalInstance.close();
+            }, 1500);
           })
           .error(function(err){
             alert('warning', 'Oops', 'Could not log in');

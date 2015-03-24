@@ -27,7 +27,7 @@
       </div>
 
 
-      <div single-comment class="row single-comment" ng-repeat="comment in data.comments" id="{{comment.id}}">
+      <div single-comment class="row single-comment" ng-repeat="comment in comments" id="{{comment.id}}">
         <div class="col-xs-12">
           <a class="comment-author" ui-sref="user({username: comment.user})">{{comment.user}}</a>
           <span class="comment-metadata">

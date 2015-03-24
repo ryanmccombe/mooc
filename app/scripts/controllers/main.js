@@ -8,7 +8,7 @@
  * Controller of the moocApp
  */
 angular.module('moocApp')
-  .controller('MainCtrl', function ($scope, $modal, $state, $http, SharedData) {
+  .controller('MainCtrl', function ($scope, $modal, $state, $http, SharedData, alert) {
     $scope.data = SharedData;
     $http.get('http://localhost:3000/links').success(function(res){
       $scope.data.links = res.links;

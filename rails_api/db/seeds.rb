@@ -17,5 +17,11 @@ Category.create(name: 'JavaScript', slug: 'javascript')
 Link.destroy_all
 users = User.all
 users.each do |user|
-  Link.create(user_id: user.id, category_id: Category.first.id, title: "#{user.name}'s link", body: "This is a link from #{user.name}", url: 'http://www.google.com')
+  Link.create(user_id: user.id, category: Category.first, title: "#{user.name}'s link", body: "This is a link from #{user.name}", url: 'http://www.google.com')
 end
+
+Comment.destroy_all
+Comment.create(body: 'Test Comment', link: Link.first, user: User.first)
+
+Upvote.destroy_all
+Upvote.create(user: User.first, link: Link.first)

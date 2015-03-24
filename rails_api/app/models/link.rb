@@ -1,4 +1,5 @@
 class Link < ActiveRecord::Base
+  cattr_accessor :current_user
   belongs_to :user
   belongs_to :category
   has_many :upvotes
@@ -8,7 +9,7 @@ class Link < ActiveRecord::Base
     {
       :id => self.id,
       :rating => self.upvotes.count,
-      :upvoted => self.upvoted?(user),
+      :upvoted => self.upvoted?,
       :title => self.title,
       :body => self.body,
       :url => self.url,
@@ -21,8 +22,11 @@ class Link < ActiveRecord::Base
     }
   end
 
-  def upvoted?(user)
-    # TODO
-    false
+  def upvoted?
+    if current_user
+      Upvote.exists?(:user => current_user, :link => self)
+    else
+      false
+    end
   end
 end

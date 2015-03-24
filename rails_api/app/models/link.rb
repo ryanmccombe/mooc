@@ -24,7 +24,8 @@ class Link < ActiveRecord::Base
 
   def upvoted?
     if current_user
-      Upvote.exists?(:user => current_user, :link => self)
+      upvote = Upvote.find_by(:user => current_user, :link => self)
+      upvote.id if upvote
     else
       false
     end

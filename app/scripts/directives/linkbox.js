@@ -12,7 +12,30 @@ angular.module('moocApp')
       templateUrl: 'views/linkbox.html',
       restrict: 'E',
       transclude: true,
-      controller: function($scope) {
+      controller: function($scope, $http) {
+
+        $scope.upvote = function(link){
+          if (link.upvoted){
+            $http.delete('http://localhost:3000/upvotes/' + link.upvoted)
+              .success(function(res){
+                console.log('downvote successful')
+              })
+              .error(function(err){
+                console.log(err)
+              });
+
+          } else {
+            console.log(link);
+            $http.post('http://localhost:3000/upvotes/', link.id)
+              .success(function(res){
+                console.log('upvote successful')
+              })
+              .error(function(err){
+                console.log(err)
+              });
+
+          }
+        };
 
         // TODO
         $scope.deleteLink = function(id){

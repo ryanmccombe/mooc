@@ -1,6 +1,6 @@
 <div class="row linkbox" id="{{link.id}}">
   <div class="col-xs-2 col-md-1">
-    <div class="row rating" ng-class="{'upvoted': link.upvoted}">
+    <div class="row rating" ng-class="{'upvoted': link.upvoted}" ng-click="upvote(link)">
       <div class="glyphicon glyphicon-triangle-top vote"></div>
       <div class="rating-count">
         {{link.rating}}

@@ -19,16 +19,5 @@ class LinksController < ApplicationController
   end
 
 
-  def get_user(headers)
-    if headers['Authorization'].nil?
-      false
-    else
-      token = AuthToken.valid?(headers['Authorization'].split(' ').last)
-      if token
-        # User.find(token[0]['user_id'])
-        User.first
-      end
-    end
-  end
 
 end

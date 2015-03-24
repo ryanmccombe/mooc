@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   resources :links
+  resources :upvotes
   post '/register' => 'users#create'
   post '/login' => 'sessions#create'
 

@@ -18,17 +18,18 @@ angular.module('moocApp')
           if (link.upvoted){
             $http.delete('http://localhost:3000/upvotes/' + link.upvoted)
               .success(function(res){
-                console.log('downvote successful')
+                link.upvoted = false;
+                link.rating--;
               })
               .error(function(err){
                 console.log(err)
               });
 
           } else {
-            console.log(link);
             $http.post('http://localhost:3000/upvotes/', link.id)
               .success(function(res){
-                console.log('upvote successful')
+                link.upvoted = res;
+                link.rating++;
               })
               .error(function(err){
                 console.log(err)

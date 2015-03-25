@@ -15,6 +15,10 @@ angular
         url: '/comments/:id',
         templateUrl: '/views/comments.html',
         controller: 'CommentCtrl'
+      })
+      .state('logout',{
+        url: '/logout',
+        controller: 'LogoutCtrl'
       });
 
     $httpProvider.interceptors.push('authInterceptor');

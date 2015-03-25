@@ -8,12 +8,12 @@
  * Controller of the moocApp
  */
 angular.module('moocApp')
-  .controller('ModalInstanceCtrl', function ($scope, $modalInstance, $http, alert, authToken, SharedData) {
+  .controller('ModalInstanceCtrl', function ($state, $scope, $modalInstance, $http, alert, authToken, SharedData) {
     $scope.data = SharedData;
 
     $scope.submit = function () {
       // TODO: Submit to server
-      var user = {user: {name: 'Ryan', password: 'test'}};
+      var user = {user: {name: $scope.username, password: $scope.password}};
       if ($scope.registering){
 
         console.log('registering ' + $scope.username + $scope.password + $scope.password_confirmation);
@@ -32,11 +32,10 @@ angular.module('moocApp')
       } else {
         $http.post('http://localhost:3000/login', user)
           .success(function(res){
-            $scope.data.user = res.user;
             authToken.setToken(res.token);
             alert('success', 'Login Success!');
             setTimeout(function(){
-              $modalInstance.close();
+              location.reload();
             }, 1500);
           })
           .error(function(err){

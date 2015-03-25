@@ -1,7 +1,6 @@
 class ApplicationController < ActionController::API
 
   def get_user(headers)
-    return User.first
     if headers['Authorization'].nil?
       false
     else
@@ -10,6 +9,7 @@ class ApplicationController < ActionController::API
         User.find(token[0]['user_id'])
       else
         # Invalid Token
+        false
 
       end
     end

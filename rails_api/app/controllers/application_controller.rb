@@ -6,7 +6,11 @@ class ApplicationController < ActionController::API
     else
       token = AuthToken.valid?(headers['Authorization'].split(' ').last)
       if token
-        User.find(token[0]['user_id'])
+        if User.exists?(token[0]['user_id'])
+          User.find(token[0]['user_id'])
+        else
+          false
+        end
       else
         # Invalid Token
         false

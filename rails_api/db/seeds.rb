@@ -13,11 +13,15 @@ User.create(name: 'John', password: 'test', password_confirmation: 'test')
 
 Category.destroy_all
 Category.create(name: 'JavaScript', slug: 'javascript')
+Category.create(name: 'Ruby', slug: 'ruby')
 
 Link.destroy_all
 users = User.all
+categories = Category.all
 users.each do |user|
-  Link.create(user_id: user.id, category: Category.first, title: "#{user.name}'s link", body: "This is a link from #{user.name}", url: 'http://www.google.com')
+  categories.each do |category|
+    Link.create(user_id: user.id, category: category, title: "#{user.name}'s link about #{category.name}", body: "This is a link from #{user.name} about #{category.name}", url: 'http://www.google.com')
+  end
 end
 
 Comment.destroy_all

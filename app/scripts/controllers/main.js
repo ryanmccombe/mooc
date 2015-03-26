@@ -13,6 +13,7 @@ angular.module('moocApp')
     $http.get('http://localhost:3000/links').success(function(res){
       $scope.data.links = res.links;
       $scope.data.user = res.user;
+      $scope.data.categories = res.categories
     }).error(function(err){
       alert('warning', 'Unable to get links', err.message);
     });

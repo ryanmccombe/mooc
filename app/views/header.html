@@ -1,18 +1,8 @@
 <div class="top-bar">
   <div class="container nowrap">
     <div class="col-xs-12 fadeout">
-      <a href="#">All</a>
-      <a ui-sref="#">Design</a>
-      <a ui-sref="#">JavaScript</a>
-      <a ui-sref="#">Ruby</a>
-      <a ui-sref="#">PHP</a>
-      <a ui-sref="#">Angular</a>
-      <a ui-sref="#">Ember</a>
-      <a ui-sref="#">React</a>
-      <a ui-sref="#">Ionic</a>
-      <a ui-sref="#">React</a>
-      <a ui-sref="#">Python</a>
-      <a ui-sref="#">Node</a>
+      <a ui-sref="main">All</a>
+      <a ng-repeat="category in data.categories" ui-sref="main({category: category.slug})">{{category.name}}</a>
     </div>
     <div class="top-right">
       <a href="#"><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>Info</a>
@@ -23,7 +13,6 @@
 
 <header>
   <div class="container">
-
 
     <div class="visible-xs">
 
@@ -37,11 +26,9 @@
             All Categories <span class="caret"></span>
           </button>
           <ul class="dropdown-menu" role="menu">
-            <li><a href="#">Action</a></li>
-            <li><a href="#">Another action</a></li>
-            <li><a href="#">Something else here</a></li>
-            <li class="divider"></li>
-            <li><a href="#">Separated link</a></li>
+            <li ng-repeat="category in data.categories">
+              <a href="#/{{category.slug}}">{{category.name}}</a>
+            </li>
           </ul>
         </div>
 
@@ -101,11 +88,13 @@
             <span class="caret"></span>
           </button>
           <ul class="dropdown-menu" role="menu">
-            <li><a href="#">Action</a></li>
-            <li><a href="#">Another action</a></li>
-            <li><a href="#">Something else here</a></li>
+            <li>
+              <a ui-sref="main">All Categories</a>
+            </li>
             <li class="divider"></li>
-            <li><a href="#">Separated link</a></li>
+            <li ng-repeat="category in data.categories">
+              <a ui-sref="main({category: category.slug})">{{category.name}}</a>
+            </li>
           </ul>
         </div>
 
@@ -162,7 +151,6 @@
           </div>
         </div>
 
-
         <div ng-hide="data.user" class="btn-group pull-right" role="group" aria-label="...">
           <button class="btn btn-default btn-top btn-active"
                   type="button"
@@ -199,13 +187,9 @@
             <li><a ui-sref="logout">Log Out</a></li>
           </ul>
 
-
-
         </div>
-
       </div>
     </div>
   </div>
-
 
 </header>

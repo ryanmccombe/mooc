@@ -6,9 +6,9 @@
 
     <select class="form-control" ng-init="categorySelection = 0" ng-model="categorySelection" required>
       <option selected disabled value="0">Select Category</option>
-      <option value="1">1</option>
-      <option value="2">2</option>
-      <option value="3">3</option>
+      <option ng-repeat="category in data.categories" value="category.slug">
+        {{category.name}}
+      </option>
     </select>
 
     <input type="text"

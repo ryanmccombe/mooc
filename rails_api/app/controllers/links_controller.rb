@@ -3,10 +3,11 @@ class LinksController < ApplicationController
 
   def index
     @user = get_user(request.headers)
+    @categories = Category.all
     @links = Link.all
     @links.current_user = @user
 
-    render json: {user: @user, links: @links}
+    render json: {user: @user, categories: @categories, links: @links}
   end
 
   def show

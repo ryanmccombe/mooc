@@ -30,7 +30,7 @@
       by
       <a ui-sref="user({username: link.user})">{{link.user}}</a>
     </span>
-      <span ng-show="data.user.admin"> | <a href="#" ng-click="deleteLink(link.id)">Delete</a></span>
+      <span ng-show="data.user.admin"> | <a href="#" ng-click="deleteLink(link)">Delete</a></span>
     </div>
 
     <div ng-show="state.current.name === 'comments' && link.body" ng-bind-html="link.body | newLineToBr" class="link-body">

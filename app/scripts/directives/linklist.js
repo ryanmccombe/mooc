@@ -10,6 +10,19 @@ angular.module('moocApp')
   .directive('linklist', function () {
     return {
       restrict: 'A',
+      controller: function($scope, $http, SharedData){
+        $scope.data = SharedData;
+
+        $scope.deleteLink = function(link){
+          $http.delete('http://localhost:3000/links/' + link.id)
+            .success(function(res){
+              location.reload();
+            })
+            .error(function(err){
+              alert(err.message);
+            });
+        }
+      },
       link: function (scope, element, attrs) {
 
       }

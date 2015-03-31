@@ -47,7 +47,15 @@ angular.module('moocApp')
 
     $scope.addLink = function(){
       // TODO: Submit to server
-      console.log('adding ' + $scope.categorySelection + $scope.title + $scope.url + $scope.body);
+      var link = {link: {title: $scope.title, body: $scope.body, url: $scope.url, category: $scope.categorySelection}};
+      $http.post('http://localhost:3000/links', link)
+        .success(function(res){
+          console.log('success');
+          $modalInstance.close();
+        })
+        .error(function(err){
+          alert('warning', 'Oops', 'Could not post');
+        });
     };
 
     $scope.cancel = function () {

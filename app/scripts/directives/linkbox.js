@@ -12,7 +12,7 @@ angular.module('moocApp')
       templateUrl: 'views/linkbox.html',
       restrict: 'E',
       transclude: true,
-      controller: function($scope, $http) {
+      controller: function($scope, $http, SharedData) {
 
         $scope.upvote = function(link){
           if (link.upvoted){
@@ -37,11 +37,6 @@ angular.module('moocApp')
 
           }
         };
-
-        // TODO
-        $scope.deleteLink = function(id){
-          console.log('deleting ' + id)
-        }
       },
       link: function postLink(scope, element, attrs) {
 

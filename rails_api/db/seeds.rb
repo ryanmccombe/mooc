@@ -7,7 +7,7 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 User.destroy_all
-User.create(name: 'Ryan', password: 'test', password_confirmation: 'test')
+User.create(name: 'Ryan', password: 'test', password_confirmation: 'test', admin: true)
 User.create(name: 'Dave', password: 'test', password_confirmation: 'test')
 User.create(name: 'John', password: 'test', password_confirmation: 'test')
 

@@ -12,7 +12,7 @@ angular.module('moocApp')
       templateUrl: 'views/linkbox.html',
       restrict: 'E',
       transclude: true,
-      controller: function($scope, $http, SharedData) {
+      controller: function($scope, $http) {
 
         $scope.upvote = function(link){
           if (link.upvoted){

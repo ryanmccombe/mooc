@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="row">
+  <div class="row no-overflow-x">
     <div class="col-xs-12 col-md-12">
 
       <linkbox ng-init="link = data.link"></linkbox>
@@ -10,13 +10,13 @@
           <span class="comment-header">Post Your Comment</span>
 
 
-          <div comment-form class="comment-form" >
+          <div comment-form class="comment-form">
             <form name="addComment" novalidate>
         <textarea required rows="3" name="body" ng-model="body"
                   class="form-control js-auto-size comment-textarea"></textarea>
 
               <div>
-                <button class="btn form-button" ng-disabled="addComment.$invalid" ng-click="addComment()">
+                <button class="btn form-button" ng-click="createComment()" ng-disabled="addComment.$invalid">
                   Submit
                 </button>
               </div>
@@ -27,7 +27,7 @@
       </div>
 
 
-      <div single-comment class="row single-comment" ng-repeat="comment in comments" id="{{comment.id}}">
+      <div single-comment class="row single-comment" ng-repeat="comment in comments | orderBy: ['new','time']" ng-class="{'new-comment': comment.new} " id="{{comment.id}}">
         <div class="col-xs-12">
           <a class="comment-author" ui-sref="user({username: comment.user})">{{comment.user}}</a>
           <span class="comment-metadata">
@@ -35,8 +35,9 @@
                   title="{{comment.time * 1000 | date:'EEE, dd MMM \'at\' h:mma'}}">
                     {{comment.time * 1000 | timeago}}
             </span>
-            <span ng-show="data.user.admin"> | <a href="#" ng-click="deleteComment(comment.id)">Delete</a></span>
+            <span ng-show="data.user.admin"> | <a class="pointer" ng-click="deleteComment(comment)">Delete</a></span>
           </span>
+
           <div class="comment-body">{{comment.body}}</div>
         </div>
       </div>

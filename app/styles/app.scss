@@ -30,6 +30,14 @@ html, body {
   background: $primary-color;
 }
 
+.no-overflow-x{
+  overflow-x: hidden;
+}
+
+.pointer{
+  cursor: pointer;
+}
+
 a {
   color: $primary-color;
 }
@@ -498,6 +506,34 @@ textarea.form-control{
 
 .alert-success{
   background-color: #53B100;
+}
+
+.new-comment.ng-enter {
+  -webkit-transition: all .8s ease-in-out;
+  -moz-transition: all .8s ease-in-out;
+  -o-transition: all .8s ease-in-out;
+  transition: all .8s ease-in-out;
+  position: relative;
+  opacity: 0;
+  bottom: 150px;
+}
+.new-comment.ng-enter-active {
+  opacity: 1;
+  bottom: 0;
+}
+
+.single-comment.ng-leave {
+  -webkit-transition: all .8s ease-in-out;
+  -moz-transition: all .8s ease-in-out;
+  -o-transition: all .8s ease-in-out;
+  transition: all .8s ease-in-out;
+  position: relative;
+  left: 0;
+  opacity: 1;
+}
+.single-comment.ng-leave-active {
+  left: 150px;
+  opacity: 0;
 }
 
 /* View Anims */

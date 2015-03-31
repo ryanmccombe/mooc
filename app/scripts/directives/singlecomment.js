@@ -10,14 +10,20 @@ angular.module('moocApp')
   .directive('singleComment', function () {
     return {
       restrict: 'A',
-      controller: function($scope){
-        // TODO
-        $scope.deleteComment = function(id){
-          console.log('deleting ' + id)
+      controller: function ($scope, $http) {
+        $scope.deleteComment = function (comment) {
+          var index = $scope.comments.indexOf(comment);
+          $http.delete('http://localhost:3000/comments/' + comment.id)
+            .success(function (res) {
+              $scope.comments.splice(index, 1);
+            })
+            .error(function (err) {
+              alert(err.message);
+            });
         }
       },
       link: function postLink(scope, element, attrs) {
-        setTimeout(function(){
+        setTimeout(function () {
           element.find('[data-toggle="tooltip"]').tooltip();
         }, 0)
 

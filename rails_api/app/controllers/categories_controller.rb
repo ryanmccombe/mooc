@@ -10,6 +10,6 @@ class CategoriesController < ApplicationController
     @links = category.links
     @links.current_user = @user
 
-    render json: {user: @user, categories: @categories, links: @links}
+    render json: {user: @user, categories: @categories, category: category, links: @links}
   end
 end

@@ -7,12 +7,12 @@
  * # moocHeader
  */
 angular.module('moocApp')
-  .directive('moocHeader', function (SharedData) {
+  .directive('moocHeader', function () {
     return {
       templateUrl: 'views/header.html',
       restrict: 'E',
-      controller: function(){
-
+      controller: function(SharedData, $scope){
+        $scope.data = SharedData;
       },
       link: function postLink(scope, element, attrs) {
         element.find('[data-toggle="tooltip"]').tooltip();

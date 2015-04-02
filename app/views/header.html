@@ -79,21 +79,25 @@
 
         <div ng-show="state.current.name === 'main'">
 
+
+
+
+
         <div class="btn-group" role="group" aria-label="...">
           <button class="btn btn-default btn-top dropdown-toggle"
                   type="button"
                   data-toggle="dropdown"
                   aria-expanded="false">
-            All Categories
+            {{data.category.name || 'All Categories'}}
             <span class="caret"></span>
           </button>
           <ul class="dropdown-menu" role="menu">
             <li>
-              <a ui-sref="main">All Categories</a>
+              <a ui-sref="main({category: '', reload: true})">All Categories</a>
             </li>
             <li class="divider"></li>
             <li ng-repeat="category in data.categories">
-              <a ui-sref="main({category: category.slug})">{{category.name}}</a>
+              <a ui-sref="main({category: category.slug, reload: true})">{{category.name}}</a>
             </li>
           </ul>
         </div>

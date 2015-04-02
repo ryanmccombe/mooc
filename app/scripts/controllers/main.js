@@ -22,7 +22,8 @@ angular.module('moocApp')
     $http.get(url).success(function (res) {
       $scope.data.links = res.links;
       $scope.data.user = res.user;
-      $scope.data.categories = res.categories
+      $scope.data.categories = res.categories;
+      $scope.data.category = res.category;
     }).error(function (err) {
       alert('warning', 'Unable to get links', err.message);
     });

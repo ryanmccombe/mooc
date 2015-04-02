@@ -4,7 +4,8 @@ angular
 
     $stateProvider.state('main',{
       url: '/:category',
-      templateUrl: '/views/linklist.html'
+      templateUrl: '/views/linklist.html',
+      controller: 'MainCtrl'
     })
       .state('user',{
         url: '/u/:username',

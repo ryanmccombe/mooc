@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :links
   resources :upvotes
   resources :comments
+  resources :categories
   post '/register' => 'users#create'
   post '/login' => 'sessions#create'
 

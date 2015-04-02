@@ -1,8 +1,8 @@
 <div class="top-bar">
   <div class="container nowrap">
     <div class="col-xs-12 fadeout">
-      <a ui-sref="main">All</a>
-      <a ng-repeat="category in data.categories" ui-sref="main({category: category.slug})">{{category.name}}</a>
+      <a ui-sref="main({category: '', reload: true})">All</a>
+      <a ng-repeat="category in data.categories" ui-sref="main({category: category.slug, reload: true})">{{category.name}}</a>
     </div>
     <div class="top-right">
       <a href="#"><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>Info</a>

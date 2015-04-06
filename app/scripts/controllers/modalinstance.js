@@ -8,7 +8,7 @@
  * Controller of the moocApp
  */
 angular.module('moocApp')
-  .controller('ModalInstanceCtrl', function ($state, $scope, $modalInstance, $http, alert, authToken, SharedData) {
+  .controller('ModalInstanceCtrl', function ($state, $scope, $modalInstance, $timeout, $http, alert, authToken, SharedData) {
     $scope.data = SharedData;
 
     $scope.submit = function () {
@@ -50,7 +50,11 @@ angular.module('moocApp')
       var link = {link: {title: $scope.title, body: $scope.body, url: $scope.url, category: $scope.categorySelection}};
       $http.post('http://localhost:3000/links', link)
         .success(function(res){
-          console.log('success');
+          $timeout(function(){
+            $scope.$apply(function(){
+              $scope.data.links.unshift(res);
+            });
+          });
           $modalInstance.close();
         })
         .error(function(err){

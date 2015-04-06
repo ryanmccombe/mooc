@@ -4,10 +4,11 @@ class LinksController < ApplicationController
   def index
     @user = get_user(request.headers)
     @categories = Category.all
+    @sort = params[:sort]
     @links = Link.all
     @links.current_user = @user
 
-    render json: {user: @user, categories: @categories, links: @links}
+    render json: {user: @user, categories: @categories, links: @links, sort: @sort}
   end
 
   def show

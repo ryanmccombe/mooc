@@ -3,7 +3,7 @@ angular
     $urlRouterProvider.otherwise('/');
 
     $stateProvider.state('main',{
-      url: '/:category',
+      url: '/:category?sort',
       templateUrl: '/views/linklist.html',
       controller: 'MainCtrl'
     })

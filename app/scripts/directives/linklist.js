@@ -14,9 +14,10 @@ angular.module('moocApp')
         $scope.data = SharedData;
 
         $scope.deleteLink = function(link){
+          var index = $scope.data.links.indexOf(link);
           $http.delete('http://localhost:3000/links/' + link.id)
             .success(function(res){
-              location.reload();
+              $scope.data.links.splice(index, 1);
             })
             .error(function(err){
               alert(err.message);

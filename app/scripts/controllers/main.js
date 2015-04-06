@@ -10,13 +10,13 @@
 angular.module('moocApp')
   .controller('MainCtrl', function ($scope, $modal, $state, $stateParams, $http, SharedData, alert) {
     $scope.data = SharedData;
+    $scope.data.sortOrder = $stateParams.sort || 'rated';
     var category = $stateParams.category;
-    console.log(category);
     var url;
     if (category) {
-      url = 'http://localhost:3000/categories/' + category
+      url = 'http://localhost:3000/categories/' + category + '?sort=' + $scope.data.sortOrder;
     } else {
-      url = 'http://localhost:3000/links'
+      url = 'http://localhost:3000/links?sort=' + $scope.data.sortOrder;
     }
 
     $http.get(url).success(function (res) {

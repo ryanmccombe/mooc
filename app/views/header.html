@@ -79,10 +79,6 @@
 
         <div ng-show="state.current.name === 'main'">
 
-
-
-
-
         <div class="btn-group" role="group" aria-label="...">
           <button class="btn btn-default btn-top dropdown-toggle"
                   type="button"
@@ -103,18 +99,18 @@
         </div>
 
         <div class="btn-group sort" role="group" aria-label="...">
-          <button class="btn btn-default btn-top btn-sort btn-selected" type="button">
-            Featured
+          <button class="btn btn-default btn-top btn-sort" ng-class="{'btn-selected': data.sortOrder == 'rated'}" ui-sref="main({category: data.category.slug, sort: 'rated', reload: true})" type="button">
+            Most Rated
           </button>
         </div>
         <div class="btn-group sort" role="group" aria-label="...">
-          <button class="btn btn-default btn-top btn-sort" type="button">
-            Top
+          <button class="btn btn-default btn-top btn-sort" ng-class="{'btn-selected': data.sortOrder == 'recent'}" ui-sref="main({category: data.category.slug, sort: 'recent', reload: true})" type="button">
+            Most Recent
           </button>
         </div>
         <div class="btn-group sort" role="group" aria-label="...">
-          <button class="btn btn-default btn-top btn-sort" type="button">
-            Latest
+          <button class="btn btn-default btn-top btn-sort" ng-class="{'btn-selected': data.sortOrder == 'myRated'}" ui-sref="main({category: data.category.slug, sort: 'myRated', reload: true})" type="button">
+            My Rated
           </button>
         </div>
           </div>

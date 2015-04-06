@@ -11,7 +11,7 @@ angular.module('moocApp')
     return {
       templateUrl: 'views/header.html',
       restrict: 'E',
-      controller: function(SharedData, $scope){
+      controller: function(SharedData, $scope, $stateParams){
         $scope.data = SharedData;
       },
       link: function postLink(scope, element, attrs) {

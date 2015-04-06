@@ -109,6 +109,11 @@ header {
   margin-right: 6px;
 }
 
+.btn-default:active, .btn-default:focus{
+  background-color: white;
+  outline-color: $primary-color;
+}
+
 .btn-top {
   font-family: $primary-font;
   font-weight: 700;

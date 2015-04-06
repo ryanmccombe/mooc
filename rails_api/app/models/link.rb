@@ -5,6 +5,11 @@ class Link < ActiveRecord::Base
   has_many :upvotes
   has_many :comments
 
+  scope :recent, -> { order('created_at DESC') }
+  scope :rated, -> { order('upvotes_count DESC') }
+  # scope :myRated, -> { where(upvoted?) }
+
+
   def as_json(options={})
     {
       :id => self.id,

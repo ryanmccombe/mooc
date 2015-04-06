@@ -5,8 +5,16 @@ class LinksController < ApplicationController
     @user = get_user(request.headers)
     @categories = Category.all
     @sort = params[:sort]
-    @links = Link.all
-    @links.current_user = @user
+    if @sort == 'recent'
+      @links = Link.recent
+      @links.current_user = @user
+    elsif @sort == 'rated'
+      @links = Link.rated
+      @links.current_user = @user
+    elsif @sort == 'myRated'
+      @links = @user.upvoted_links
+    end
+
 
     render json: {user: @user, categories: @categories, links: @links, sort: @sort}
   end

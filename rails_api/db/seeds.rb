@@ -12,8 +12,22 @@ User.create(name: 'Dave', password: 'test', password_confirmation: 'test')
 User.create(name: 'John', password: 'test', password_confirmation: 'test')
 
 Category.destroy_all
+Category.create(name: 'Design', slug: 'design')
+Category.create(name: 'HTML/CSS', slug: 'htmlcss')
 Category.create(name: 'JavaScript', slug: 'javascript')
+Category.create(name: 'PHP', slug: 'php')
+Category.create(name: 'Python', slug: 'python')
 Category.create(name: 'Ruby', slug: 'ruby')
+Category.create(name: 'C#', slug: 'c-sharp')
+Category.create(name: 'Java', slug: 'java')
+Category.create(name: 'Objective-C', slug: 'objective-c')
+Category.create(name: 'Android', slug: 'android')
+Category.create(name: 'iOS', slug: 'ios')
+Category.create(name: 'jQuery', slug: 'jquery')
+Category.create(name: 'AngularJS', slug: 'angularjs')
+Category.create(name: 'React', slug: 'react')
+Category.create(name: 'EnberJS', slug: 'ember')
+
 
 Link.destroy_all
 users = User.all
@@ -29,3 +43,5 @@ Comment.create(body: 'Test Comment', link: Link.first, user: User.first)
 
 Upvote.destroy_all
 Upvote.create(user: User.first, link: Link.first)
+Upvote.create(user: User.second, link: Link.first)
+Upvote.create(user: User.second, link: Link.second)

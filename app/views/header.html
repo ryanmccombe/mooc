@@ -14,75 +14,21 @@
 <header>
   <div class="container">
 
-    <div class="visible-xs">
-
-      <a class="navbar-brand" href="#">Logo</a>
-
-      <div class="btn-toolbar" role="toolbar" aria-label="...">
-
-        <div class="btn-group" role="group" aria-label="...">
-          <button class="btn btn-default btn-top dropdown-toggle" type="button" data-toggle="dropdown"
-                  aria-expanded="false">
-            All Categories <span class="caret"></span>
-          </button>
-          <ul class="dropdown-menu" role="menu">
-            <li ng-repeat="category in data.categories">
-              <a href="#/{{category.slug}}">{{category.name}}</a>
-            </li>
-          </ul>
-        </div>
-
-        <div class="btn-group" role="group" aria-label="...">
-          <button class="btn btn-default btn-top dropdown-toggle" type="button" data-toggle="dropdown"
-                  aria-expanded="false">
-            Featured <span class="caret"></span>
-          </button>
-          <ul class="dropdown-menu" role="menu">
-            <li><a href="#">Top Rated</a></li>
-            <li><a href="#">New</a></li>
-          </ul>
-        </div>
 
 
-        <div class="btn-group pull-right" role="group" aria-label="...">
-          <button class="btn btn-default btn-top dropdown-toggle user-icon" type="button" data-toggle="dropdown"
-                  aria-expanded="false">
-            <span class="glyphicon glyphicon-user"></span>
-          </button>
-          <button class="btn btn-default btn-top btn-add"
-                  type="button"
-                  data-toggle="tooltip"
-                  data-placement="left"
-                  title="Add a Link"
-                  ng-click="addLink()">
-            <span class="glyphicon glyphicon-plus-sign"></span>
-          </button>
-          <ul class="dropdown-menu" role="menu">
-            <li><a href="#">Action</a></li>
-            <li><a href="#">Another action</a></li>
-            <li><a href="#">Something else here</a></li>
-            <li class="divider"></li>
-            <li><a href="#">Separated link</a></li>
-          </ul>
 
-        </div>
+    <a class="navbar-brand" ui-sref="main">Really Cool Logo</a>
 
-      </div>
+    <div class="btn-toolbar" role="toolbar" aria-label="...">
+
+      <ng-include ng-show="state.current.name === 'main'" src="'views/header_components/link_filter.html'"></ng-include>
+      <ng-include ng-show="state.current.name === 'user'" src="'views/header_components/user_filter.html'"></ng-include>
+
+      <ng-include ng-hide="data.user" src="'views/header_components/login_button.html'"></ng-include>
+      <ng-include ng-show="data.user" src="'views/header_components/user_area.html'"></ng-include>
+
     </div>
 
-    <div class="hidden-xs">
-      <a class="navbar-brand" ui-sref="main">Really Cool Logo</a>
-
-      <div class="btn-toolbar" role="toolbar" aria-label="...">
-
-        <ng-include ng-show="state.current.name === 'main'" src="'views/header_components/link_filter.html'"> </ng-include>
-        <ng-include ng-show="state.current.name === 'user'" src="'views/header_components/user_filter.html'"> </ng-include>
-
-        <ng-include ng-hide="data.user" src="'views/header_components/login_button.html'"> </ng-include>
-        <ng-include ng-show="data.user" src="'views/header_components/user_area.html'"> </ng-include>
-
-      </div>
-    </div>
   </div>
 
 </header>

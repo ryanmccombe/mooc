@@ -10,6 +10,7 @@
 angular.module('moocApp')
   .controller('MainCtrl', function ($scope, $modal, $state, $stateParams, $http, SharedData, alert) {
     $scope.data = SharedData;
+    $scope.data.sortOrders = {rated: 'Most Rated', recent: 'Most Recent', myRated: 'My Rated'};
     $scope.data.sortOrder = $stateParams.sort || 'rated';
     var category = $stateParams.category;
     var url;

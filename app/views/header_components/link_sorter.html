@@ -1,27 +1,21 @@
 <div class="hidden-xs">
   <div class="btn-group sort" role="group" aria-label="...">
     <button class="btn btn-default btn-top btn-sort" ng-class="{'btn-selected': data.sortOrder == 'rated'}"
-            ui-sref="user({sort: 'rated', reload: true})" type="button">
+            ui-sref="main({category: data.category.slug, sort: 'rated', reload: true})" type="button">
       Most Rated
     </button>
   </div>
   <div class="btn-group sort" role="group" aria-label="...">
     <button class="btn btn-default btn-top btn-sort" ng-class="{'btn-selected': data.sortOrder == 'recent'}"
-            ui-sref="user({sort: 'recent', reload: true})" type="button">
+            ui-sref="main({category: data.category.slug, sort: 'recent', reload: true})" type="button">
       Most Recent
     </button>
   </div>
   <div class="btn-group sort" role="group" aria-label="...">
     <button ng-show="data.user" class="btn btn-default btn-top btn-sort"
             ng-class="{'btn-selected': data.sortOrder == 'myRated'}"
-            ui-sref="user({sort: 'myRated', reload: true})" type="button">
+            ui-sref="main({category: data.category.slug, sort: 'myRated', reload: true})" type="button">
       My Rated
-    </button>
-  </div>
-  <div class="btn-group sort" role="group" aria-label="...">
-    <button class="btn btn-default btn-top btn-sort" ng-class="{'btn-selected': data.sortOrder == 'comments'}"
-            ui-sref="user({sort: 'comments', reload: true})" type="button">
-      Comments
     </button>
   </div>
 </div>

@@ -5,18 +5,33 @@ class LinksController < ApplicationController
     @user = get_user(request.headers)
     @categories = Category.all
     @sort = params[:sort]
-    if @sort == 'recent'
-      @links = Link.recent
-      @links.current_user = @user
-    elsif @sort == 'rated'
-      @links = Link.rated
-      @links.current_user = @user
-    elsif @sort == 'myRated'
-      @links = @user.upvoted_links
+
+    if @sort == 'comments'
+      # TODO Controller Redirect
     end
 
+    if params[:user]
+      @profile = User.find_by_name(params[:user])
+      if @sort == 'recent'
+        @links = @profile.links.recent
+      elsif @sort == 'rated'
+        @links = @profile.links.rated
+      elsif @sort == 'myRated'
+        @links = @user.upvoted_links.where(user: @profile)
+      end
+    else
+      if @sort == 'recent'
+        @links = Link.recent
+      elsif @sort == 'rated'
+        @links = Link.rated
+      elsif @sort == 'myRated'
+        @links = @user.upvoted_links
+      end
+    end
 
-    render json: {user: @user, categories: @categories, links: @links, sort: @sort}
+    @links.current_user = @user
+
+    render json: {user: @user, profile: @profile, categories: @categories, links: @links, sort: @sort}
   end
 
   def show
@@ -25,7 +40,7 @@ class LinksController < ApplicationController
     @link.current_user = @user
     @comments = @link.comments.all
 
-    render json: {user: @user, link: @link, comments: @comments}
+    render json: {user: @user, category: @link.category, link: @link, comments: @comments}
   end
 
   def create

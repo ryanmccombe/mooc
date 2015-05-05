@@ -13,7 +13,7 @@ class Link < ActiveRecord::Base
   def as_json(options={})
     {
       :id => self.id,
-      :rating => self.upvotes.count,
+      :rating => self.upvotes_count,
       :upvoted => self.upvoted?,
       :title => self.title,
       :body => self.body,

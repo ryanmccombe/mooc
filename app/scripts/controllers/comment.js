@@ -8,12 +8,15 @@
  * Controller of the moocApp
  */
 angular.module('moocApp')
-  .controller('CommentCtrl', function ($scope, $http, $stateParams) {
+  .controller('CommentCtrl', function ($scope, $http, $stateParams, SharedData) {
     $scope.id = $stateParams.id;
+    $scope.data = SharedData;
 
     $http.get('http://localhost:3000/links/' + $stateParams.id).success(function (res) {
       $scope.link = res.link;
       $scope.comments = res.comments;
+      $scope.data.category = res.category;
+      console.log($scope.data.category);
 
     }).error(function (err) {
       alert('warning', 'Unable to get links', err.message);

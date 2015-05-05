@@ -8,7 +8,7 @@ angular
       controller: 'MainCtrl'
     })
       .state('user',{
-        url: '/u/:username',
+        url: '/u/:username/:sort',
         templateUrl: '/views/user.html',
         controller: 'UserprofileCtrl'
       })

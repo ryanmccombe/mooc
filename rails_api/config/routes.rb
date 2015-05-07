@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :categories
   post '/register' => 'users#create'
   post '/login' => 'sessions#create'
+  get 'user/comments' => 'comments#user_comments'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

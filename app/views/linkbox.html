@@ -9,7 +9,7 @@
     </div>
   </div>
 
-  <div ng-class="{'col-xs-8 col-md-10 border-sides': state.current.name === 'main', 'col-xs-10 col-md-11 border-left': state.current.name != 'main'}">
+  <div ng-class="{'col-xs-8 col-md-10 border-sides': state.current.name != 'comments', 'col-xs-10 col-md-11 border-left': state.current.name === 'comments'}">
     <div class="link-data">
     <span class="title">
       <a href="{{link.url}}">
@@ -21,7 +21,7 @@
     <div class="link-metadata">
     <span>
       submitted
-      <span class="time" data-toggle="tooltip" data-placement="left"
+      <span class="time" data-placement="left"
             title="{{link.time * 1000 | date:'EEE, dd MMM \'at\' h:mma'}}">
         {{link.time * 1000 | timeago}}
       </span>
@@ -37,7 +37,7 @@
     </div>
 
   </div>
-  <div ng-show="state.current.name === 'main'" class="col-xs-2 col-md-1">
+  <div ng-show="state.current.name === 'main' || state.current.name === 'user'" class="col-xs-2 col-md-1">
     <div class="row comment-count">
       <a ui-sref="comments({id: link.id})">
 

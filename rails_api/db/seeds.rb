@@ -26,7 +26,7 @@ Category.create(name: 'iOS', slug: 'ios')
 Category.create(name: 'jQuery', slug: 'jquery')
 Category.create(name: 'AngularJS', slug: 'angularjs')
 Category.create(name: 'React', slug: 'react')
-Category.create(name: 'EnberJS', slug: 'ember')
+Category.create(name: 'EmberJS', slug: 'ember')
 
 
 Link.destroy_all
@@ -39,7 +39,10 @@ users.each do |user|
 end
 
 Comment.destroy_all
+long_comment = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque pretium ultricies lacus, nec commodo massa sagittis nec. Aenean volutpat urna urna, vitae vulputate metus tristique a. Maecenas bibendum dapibus suscipit. Etiam ac dolor sed nisl tristique vulputate. Etiam volutpat risus quis posuere venenatis. Nunc sed tristique ante, a convallis erat. Sed sit amet leo quam. Proin at erat rhoncus, lacinia est vitae, euismod dui. Fusce at tempor nisi.'
 Comment.create(body: 'Test Comment', link: Link.first, user: User.first)
+Comment.create(body: 'Second Comment', link: Link.second, user: User.first)
+Comment.create(body: long_comment, link: Link.third, user: User.first)
 
 Upvote.destroy_all
 Upvote.create(user: User.first, link: Link.first)

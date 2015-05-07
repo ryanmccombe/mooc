@@ -24,4 +24,10 @@ class CommentsController < ApplicationController
       render json: {message: 'Only an administrator can delete comments'}, status: 401
     end
   end
+
+  def user_comments
+    @user = User.find_by_name(params[:user])
+    @comments = @user.comments
+    render json: {comments: @comments}
+  end
 end

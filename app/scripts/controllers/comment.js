@@ -16,15 +16,7 @@ angular.module('moocApp')
       $scope.link = res.link;
       $scope.comments = res.comments;
       $scope.data.category = res.category;
-      console.log($scope.data.category);
-
     }).error(function (err) {
       alert('warning', 'Unable to get links', err.message);
     });
-
-
-
-
-
-
   });

@@ -1,5 +1,23 @@
-<div class="container">
-  <div class="container" linklist id="linklist">
-    <linkbox ng-repeat="link in data.links"></linkbox>
+<div class="container" ng-hide="data.sortOrder === 'comments'" linklist id="linklist">
+  <linkbox ng-repeat="link in data.links"></linkbox>
+</div>
+
+<div class="container" ng-show="data.sortOrder === 'comments'">
+  <div single-comment class="row single-comment" ng-repeat="comment in comments | orderBy: ['new','time']"
+       ng-class="{'new-comment': comment.new} " id="{{comment.id}}">
+    <div class="col-xs-12">
+      <a class="comment-author" ui-sref="user({username: comment.user})">{{comment.user}}</a>
+          <span class="comment-metadata">
+            <span class="time" data-toggle="tooltip" data-placement="right"
+                  title="{{comment.time * 1000 | date:'EEE, dd MMM \'at\' h:mma'}}">
+                    {{comment.time * 1000 | timeago}}
+            </span>
+             to <a ui-sref="main({category: comment.category.slug, reload: true})">{{comment.category.name}}</a> /
+              <a ui-sref="comments({id: comment.link_id, reload: true})">{{comment.link}}</a>
+            <span ng-show="data.user.admin"> | <a class="pointer" ng-click="deleteComment(comment)">Delete</a></span>
+          </span>
+
+      <div class="comment-body">{{comment.body}}</div>
+    </div>
   </div>
 </div>

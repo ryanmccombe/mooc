@@ -1,5 +1,5 @@
 angular
-  .module('moocApp').config(function($stateProvider, $urlRouterProvider, $httpProvider){
+  .module('moocApp').config(function($stateProvider, $urlRouterProvider, $httpProvider, $locationProvider){
     $urlRouterProvider.otherwise('/');
 
     $stateProvider.state('main',{
@@ -23,6 +23,8 @@ angular
       });
 
     $httpProvider.interceptors.push('authInterceptor');
+
+    // $locationProvider.html5Mode(true);
   })
 
   .constant('API_URL', '');

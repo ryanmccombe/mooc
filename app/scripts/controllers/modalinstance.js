@@ -8,7 +8,7 @@
  * Controller of the moocApp
  */
 angular.module('moocApp')
-  .controller('ModalInstanceCtrl', function ($state, $scope, $modalInstance, $timeout, $http, alert, authToken, SharedData) {
+  .controller('ModalInstanceCtrl', function ($state, $scope, $modalInstance, $timeout, $http, alert, authToken, SharedData, API_URL) {
     $scope.data = SharedData;
 
     $scope.submit = function () {
@@ -19,7 +19,7 @@ angular.module('moocApp')
         console.log('registering ' + $scope.username + $scope.password + $scope.password_confirmation);
 
 
-        $http.post('http://localhost:3000/register', user)
+        $http.post(API_URL + 'register', user)
           .success(function(res){
             console.log('registered success');
             authToken.setToken(res.token);
@@ -30,7 +30,7 @@ angular.module('moocApp')
           });
 
       } else {
-        $http.post('http://localhost:3000/login', user)
+        $http.post(API_URL + 'login', user)
           .success(function(res){
             authToken.setToken(res.token);
             alert('success', 'Login Success!');
@@ -48,7 +48,7 @@ angular.module('moocApp')
     $scope.addLink = function(){
       // TODO: Submit to server
       var link = {link: {title: $scope.title, body: $scope.body, url: $scope.url, category: $scope.categorySelection}};
-      $http.post('http://localhost:3000/links', link)
+      $http.post(API_URL + 'links', link)
         .success(function(res){
           $timeout(function(){
             $scope.$apply(function(){

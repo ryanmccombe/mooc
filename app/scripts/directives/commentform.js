@@ -12,10 +12,10 @@ angular.module('moocApp')
   .directive('commentForm', function () {
     return {
       restrict: 'A',
-      controller: function ($scope, $http, $timeout) {
+      controller: function ($scope, $http, $timeout, API_URL) {
         $scope.createComment = function () {
           var comment = {comment: {body: $scope.body, id: $scope.id}};
-          $http.post('http://localhost:3000/comments', comment)
+          $http.post(API_URL + 'comments', comment)
             .success(function(res){
               res.new = true;
               $scope.body = '';

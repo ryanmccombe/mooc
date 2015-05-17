@@ -8,16 +8,16 @@
  * Controller of the moocApp
  */
 angular.module('moocApp')
-  .controller('MainCtrl', function ($scope, $modal, $state, $stateParams, $http, SharedData, alert) {
+  .controller('MainCtrl', function ($scope, $modal, $state, $stateParams, $http, SharedData, alert, API_URL) {
     $scope.data = SharedData;
     $scope.data.sortOrders = {rated: 'Most Rated', recent: 'Most Recent', myRated: 'My Rated'};
     $scope.data.sortOrder = $stateParams.sort || 'rated';
     var category = $stateParams.category;
     var url;
     if (category) {
-      url = 'http://localhost:3000/categories/' + category + '?sort=' + $scope.data.sortOrder;
+      url = API_URL + 'categories/' + category + '?sort=' + $scope.data.sortOrder;
     } else {
-      url = 'http://localhost:3000/links?sort=' + $scope.data.sortOrder;
+      url = API_URL + 'links?sort=' + $scope.data.sortOrder;
     }
 
     $http.get(url).success(function (res) {
@@ -52,9 +52,7 @@ angular.module('moocApp')
         controller: 'ModalInstanceCtrl',
         resolve: {
           items: function () {
-
           }
-
         }
       });
 

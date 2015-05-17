@@ -12,11 +12,11 @@ angular.module('moocApp')
       templateUrl: 'views/linkbox.html',
       restrict: 'E',
       transclude: true,
-      controller: function($scope, $http) {
+      controller: function($scope, $http, API_URL) {
 
         $scope.upvote = function(link){
           if (link.upvoted){
-            $http.delete('http://localhost:3000/upvotes/' + link.upvoted)
+            $http.delete(API_URL + 'upvotes/' + link.upvoted)
               .success(function(res){
                 link.upvoted = false;
                 link.rating--;
@@ -26,7 +26,7 @@ angular.module('moocApp')
               });
 
           } else {
-            $http.post('http://localhost:3000/upvotes/', link.id)
+            $http.post(API_URL + 'upvotes/', link.id)
               .success(function(res){
                 link.upvoted = res;
                 link.rating++;

@@ -10,12 +10,12 @@ angular.module('moocApp')
   .directive('linklist', function () {
     return {
       restrict: 'A',
-      controller: function($scope, $http, SharedData){
+      controller: function($scope, $http, SharedData, API_URL){
         $scope.data = SharedData;
 
         $scope.deleteLink = function(link){
           var index = $scope.data.links.indexOf(link);
-          $http.delete('http://localhost:3000/links/' + link.id)
+          $http.delete(API_URL + 'links/' + link.id)
             .success(function(res){
               $scope.data.links.splice(index, 1);
             })

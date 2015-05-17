@@ -27,4 +27,5 @@ angular
     // $locationProvider.html5Mode(true);
   })
 
-  .constant('API_URL', '');
+  .constant('API_URL', 'http://localhost:3000/')
+  .constant('SITE_URL', 'http://localhost:9000/');

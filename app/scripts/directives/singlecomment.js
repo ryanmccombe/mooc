@@ -10,10 +10,10 @@ angular.module('moocApp')
   .directive('singleComment', function () {
     return {
       restrict: 'A',
-      controller: function ($scope, $http) {
+      controller: function ($scope, $http, API_URL) {
         $scope.deleteComment = function (comment) {
           var index = $scope.comments.indexOf(comment);
-          $http.delete('http://localhost:3000/comments/' + comment.id)
+          $http.delete(API_URL + 'comments/' + comment.id)
             .success(function (res) {
               $scope.comments.splice(index, 1);
             })

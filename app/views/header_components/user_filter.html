@@ -1,4 +1,15 @@
+<div class="btn-group" role="group" aria-label="...">
+  <button class="btn btn-default btn-top"
+          type="button"
+          data-toggle="dropdown"
+          aria-expanded="false"
+          ui-sref="user({sort: 'rated', reload: true})">
+    {{data.profile}}
+  </button>
+</div>
+
 <div class="hidden-xs">
+
   <div class="btn-group sort" role="group" aria-label="...">
     <button class="btn btn-default btn-top btn-sort" ng-class="{'btn-selected': data.sortOrder == 'rated'}"
             ui-sref="user({sort: 'rated', reload: true})" type="button">

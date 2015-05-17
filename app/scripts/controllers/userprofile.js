@@ -8,13 +8,14 @@
  * Controller of the moocApp
  */
 angular.module('moocApp')
-  .controller('UserprofileCtrl', function ($http, $scope, $stateParams) {
+  .controller('UserprofileCtrl', function ($http, $scope, $stateParams, API_URL) {
     var profile = $stateParams.username;
     var url;
     $scope.data.sortOrder = $stateParams.sort || 'rated';
+    $scope.data.profile = profile;
 
     if($scope.data.sortOrder === 'comments'){
-      url = 'http://localhost:3000/user/comments/?user=' + profile;
+      url = API_URL + 'user/comments/?user=' + profile;
       $http.get(url).success(function (res) {
         $scope.comments = res.comments;
       }).error(function (err) {
@@ -22,7 +23,7 @@ angular.module('moocApp')
       });
 
     } else {
-      url = 'http://localhost:3000/links?sort=' + $scope.data.sortOrder + '&user=' + profile;
+      url = API_URL + 'links?sort=' + $scope.data.sortOrder + '&user=' + profile;
       $http.get(url).success(function (res) {
         $scope.data.links = res.links;
         $scope.data.user = res.user;

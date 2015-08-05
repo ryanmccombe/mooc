@@ -12,7 +12,7 @@
   <div ng-class="{'col-xs-8 col-md-10 border-sides': state.current.name != 'comments', 'col-xs-10 col-md-11 border-left': state.current.name === 'comments'}">
     <div class="link-data">
     <span class="title">
-      <a href="{{link.url}}">
+      <a href="{{link.url || '#/comments/' + link.id}}">
         {{link.title}}
       </a>
     </span>
@@ -38,16 +38,18 @@
 
   </div>
   <div ng-show="state.current.name === 'main' || state.current.name === 'user'" class="col-xs-2 col-md-1">
+    <a class="comment-link" ui-sref="comments({id: link.id})">
     <div class="row comment-count">
-      <a ui-sref="comments({id: link.id})">
+
 
 
       <div class="glyphicon glyphicon-comment"></div>
       <div class="comment-count-text">
         {{link.comments}}
       </div>
-      </a>
+
     </div>
+    </a>
 
   </div>
 </div>

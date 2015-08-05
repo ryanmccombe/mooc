@@ -317,15 +317,15 @@ header {
   cursor: pointer;
 }
 
-.comment-count a{
+.comment-link{
   color: $black;
 }
 
-.comment-count a:hover{
+.comment-link:hover{
   text-decoration: none;
 }
 
-.comment-count:hover .glyphicon {
+.comment-link:hover .glyphicon {
   color: $primary-color;
 }
 

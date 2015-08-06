@@ -1,5 +1,5 @@
 class AddCategoryIdToLinks < ActiveRecord::Migration
   def change
-    add_column :links, :category_id, :reference
+    add_reference :links, :category_id
   end
 end

@@ -1,9 +1,11 @@
 source 'http://rubygems.org'
+ruby '2.1.5'
 
 gem 'rails', '4.2.0'
 gem 'rails-api'
 
 gem 'pg', :group => :production
+gem 'rails_12factor', group: :production
 
 #auth
 gem 'bcrypt'

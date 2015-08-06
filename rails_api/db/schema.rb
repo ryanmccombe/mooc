@@ -24,14 +24,14 @@ ActiveRecord::Schema.define(version: 20150406081557) do
 
   create_table "comments", force: :cascade do |t|
     t.text     "body"
-    t.integer  "user_id_id"
-    t.integer  "link_id_id"
+    t.integer  "user_id"
+    t.integer  "link_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "comments", ["link_id_id"], name: "index_comments_on_link_id_id"
-  add_index "comments", ["user_id_id"], name: "index_comments_on_user_id_id"
+  add_index "comments", ["link_id"], name: "index_comments_on_link_id"
+  add_index "comments", ["user_id"], name: "index_comments_on_user_id"
 
   create_table "links", force: :cascade do |t|
     t.integer  "rating"
@@ -39,11 +39,13 @@ ActiveRecord::Schema.define(version: 20150406081557) do
     t.string   "title"
     t.string   "body"
     t.string   "url"
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
-    t.integer  "category_id_id"
-    t.integer  "upvotes_count",  default: 0
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+    t.integer  "category_id"
+    t.integer  "upvotes_count", default: 0
   end
+
+  add_index "links", ["category_id"], name: "index_links_on_category_id"
 
   create_table "upvotes", force: :cascade do |t|
     t.integer  "user_id"

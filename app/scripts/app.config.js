@@ -27,5 +27,5 @@ angular
     // $locationProvider.html5Mode(true);
   })
 
-  .constant('API_URL', 'http://localhost:3000/')
+  .constant('API_URL', 'http://webbit.herokuapp.com/')
   .constant('SITE_URL', 'http://localhost:9000/');
